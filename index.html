@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MedicineTransparency.eu</title>
     <meta name="description" content="EU advocacy initiative for species-origin disclosure of animal-derived excipients in medicines." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#FBF7F1" />
 
-    <link rel="canonical" href="https://medicinetransparency.eu/" />
-    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.medicinetransparency.eu/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MedicineTransparency.eu" />
     <meta property="og:title" content="MedicineTransparency.eu" />
     <meta property="og:description" content="EU advocacy initiative for species-origin disclosure of animal-derived excipients in medicines." />
-    <meta property="og:url" content="https://medicinetransparency.eu/" />
+    <meta property="og:url" content="https://www.medicinetransparency.eu/" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="MedicineTransparency.eu" />
@@ -21,11 +22,18 @@
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232B6CB0%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23235A93%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20x%3D%278%27%20y%3D%2720%27%20width%3D%2748%27%20height%3D%2724%27%20rx%3D%2712%27%20fill%3D%27url(%23g)%27/%3E%3Cpath%20d%3D%27M28%2022%20l8%2020%27%20stroke%3D%27%23FFFFFF%27%20stroke-width%3D%275%27%20stroke-linecap%3D%27round%27/%3E%3Ccircle%20cx%3D%2724%27%20cy%3D%2732%27%20r%3D%272.6%27%20fill%3D%27%23FFFFFF%27%20fill-opacity%3D%270.55%27/%3E%3Ccircle%20cx%3D%2740%27%20cy%3D%2732%27%20r%3D%272.6%27%20fill%3D%27%23FFFFFF%27%20fill-opacity%3D%270.55%27/%3E%3C/svg%3E" />
 
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"WebSite",
+            "name":"MedicineTransparency.eu",
+            "url":"https://www.medicinetransparency.eu/",
+            "description":"EU advocacy initiative for species-origin disclosure of animal-derived excipients in medicines."
+        }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        /** @type {any} */
-        const tailwind = window.tailwind || {};
         tailwind.config = {
             theme: {
                 extend: {
@@ -36,7 +44,7 @@
                     }
                 }
             }
-        };
+        }
     </script>
 
     <style>
@@ -45,10 +53,7 @@
             --nav-h:96px;
         }
 
-        html{
-            scroll-behavior:smooth;
-            scroll-padding-top:var(--nav-h);
-        }
+        html{ scroll-behavior:smooth; }
 
         section[id]{ scroll-margin-top:var(--nav-h); }
 
@@ -198,7 +203,6 @@
 
         .ico-red{ color:rgb(220,38,38); }
         .ico-green{ color:rgb(22,163,74); }
-
         .ico-red svg, .ico-green svg{ display:block; }
 
         .h-main{
@@ -214,26 +218,18 @@
             }
         }
 
-        .box-p{
-            font-size:1.10rem;
-            line-height:1.8rem;
-            color:rgb(68,64,60);
-        }
-        @media (min-width:640px){
-            .box-p{
-                font-size:1.14rem;
-            }
+        .sr-only{
+            position:absolute;
+            width:1px;
+            height:1px;
+            padding:0;
+            margin:-1px;
+            overflow:hidden;
+            clip:rect(0,0,0,0);
+            white-space:nowrap;
+            border:0;
         }
     </style>
-
-    <script type="application/ld+json">
-        {
-            "@context":"https://schema.org",
-            "@type":"WebSite",
-            "name":"MedicineTransparency.eu",
-            "url":"https://medicinetransparency.eu/"
-        }
-    </script>
 </head>
 
 <body class="text-stone-900">
@@ -241,20 +237,20 @@
     <div class="mx-auto max-w-6xl px-5 sm:px-6">
         <div class="flex items-center justify-between py-4">
             <a href="#overview" class="flex items-center gap-3">
-                <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-600 shadow-sm">
-                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="capTop" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.98"></stop>
-                                <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.70"></stop>
-                            </linearGradient>
-                        </defs>
-                        <rect x="3.2" y="7" width="17.6" height="10" rx="5" fill="url(#capTop)"></rect>
-                        <path d="M9.1 7.4l5.8 9.2" stroke="rgba(35,90,147,0.92)" stroke-width="2" stroke-linecap="round"></path>
-                        <circle cx="8.1" cy="12" r="1.05" fill="rgba(35,90,147,0.55)"></circle>
-                        <circle cx="16.0" cy="12" r="1.05" fill="rgba(35,90,147,0.55)"></circle>
-                    </svg>
-                </span>
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-600 shadow-sm">
+          <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="capTop" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.98"></stop>
+                <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.70"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="3.2" y="7" width="17.6" height="10" rx="5" fill="url(#capTop)"></rect>
+            <path d="M9.1 7.4l5.8 9.2" stroke="rgba(35,90,147,0.92)" stroke-width="2" stroke-linecap="round"></path>
+            <circle cx="8.1" cy="12" r="1.05" fill="rgba(35,90,147,0.55)"></circle>
+            <circle cx="16.0" cy="12" r="1.05" fill="rgba(35,90,147,0.55)"></circle>
+          </svg>
+        </span>
                 <span class="text-lg font-semibold tracking-tight sm:text-xl">MedicineTransparency.eu</span>
             </a>
 
@@ -269,7 +265,7 @@
             </nav>
 
             <div class="flex items-center gap-3">
-                <a href="v1.5 Transparency on Animal-Derived Excipients in Human Medicines + Sources.pdf"
+                <a href="v1.5%20Transparency%20on%20Animal-Derived%20Excipients%20in%20Human%20Medicines%20+%20Sources.pdf"
                    target="_blank" rel="noopener"
                    class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-accent-600 px-4 py-2.5 text-sm font-semibold text-stone-900 shadow-sm hover:bg-accent-700 focus:outline-none focus:ring-4 focus:ring-amber-200 btn-ease">
                     <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -294,7 +290,7 @@
 
         <div id="mobilePanel" class="mobile-panel lg:hidden" data-open="false">
             <div class="pb-4">
-                <div class="grid gap-2 rounded-3xl border border-stone-200 bg-paper/75 p-4 shadow-sm" aria-label="Mobile">
+                <div class="grid gap-2 rounded-3xl border border-stone-200 bg-paper/75 p-4 shadow-sm" aria-label="Mobile navigation">
                     <a href="#overview" class="rounded-2xl px-3 py-2 text-stone-800 hover:bg-paper/90 btn-ease">Overview</a>
                     <a href="#problem" class="rounded-2xl px-3 py-2 text-stone-800 hover:bg-paper/90 btn-ease">Why?</a>
                     <a href="#solution" class="rounded-2xl px-3 py-2 text-stone-800 hover:bg-paper/90 btn-ease">Solution</a>
@@ -303,7 +299,7 @@
                     <a href="#faq" class="rounded-2xl px-3 py-2 text-stone-800 hover:bg-paper/90 btn-ease">FAQ</a>
                     <a href="#contact" class="rounded-2xl px-3 py-2 text-stone-800 hover:bg-paper/90 btn-ease">Contact</a>
 
-                    <a href="v1.5 Transparency on Animal-Derived Excipients in Human Medicines + Sources.pdf"
+                    <a href="v1.5%20Transparency%20on%20Animal-Derived%20Excipients%20in%20Human%20Medicines%20+%20Sources.pdf"
                        target="_blank" rel="noopener"
                        class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent-600 px-4 py-2.5 text-sm font-semibold text-stone-900 shadow-sm hover:bg-accent-700 focus:outline-none focus:ring-4 focus:ring-amber-200 btn-ease">
                         <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -330,7 +326,8 @@
 
             <br><p> </p>
 
-            <h1 class="mt-5 font-extrabold tracking-tight text-stone-900" style="font-size:clamp(2.05rem, 5vw, 4.1rem); line-height:1.03;">
+            <h1 class="mt-5 font-extrabold tracking-tight text-stone-900"
+                style="font-size:clamp(2.05rem, 5vw, 4.1rem); line-height:1.03;">
                 Disclose animal-derived<br class="hidden sm:block" />
                 ingredients in <span class="text-brand-700">EU medicines</span>
             </h1>
@@ -387,22 +384,22 @@
                     <p class="mt-4 text-base leading-relaxed text-stone-700 sm:text-lg">
                         Animal ingredients in
                         <span class="tip">
-                            <span class="underline decoration-dotted underline-offset-4">excipients</span>
-                            <span class="tip-bubble">Inactive ingredients such as capsule shells, fillers, and coatings.</span>
-                        </span>
+              <span class="underline decoration-dotted underline-offset-4">excipients</span>
+              <span class="tip-bubble">Inactive ingredients such as capsule shells, fillers, and coatings.</span>
+            </span>
                         can create a serious ethical concern because their origin is often not disclosed by manufacturers.
                     </p>
 
                     <div class="mt-6 cons-list">
                         <div class="cons-item">
                             <div class="icon-row">
-                                <span class="ico-red" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M12 8v5"></path>
-                                        <path d="M12 16h.01"></path>
-                                    </svg>
-                                </span>
+                <span class="ico-red" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v5"></path>
+                    <path d="M12 16h.01"></path>
+                  </svg>
+                </span>
                                 <div>
                                     <div class="t">Prevents informed consent</div>
                                     <div class="d">Animal species origin determines acceptability for many ethical and religious convictions, while medicines are often unavoidable.</div>
@@ -412,13 +409,13 @@
 
                         <div class="cons-item">
                             <div class="icon-row">
-                                <span class="ico-red" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M12 8v5"></path>
-                                        <path d="M12 16h.01"></path>
-                                    </svg>
-                                </span>
+                <span class="ico-red" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v5"></path>
+                    <path d="M12 16h.01"></path>
+                  </svg>
+                </span>
                                 <div>
                                     <div class="t">Affects clinicians and pharmacists</div>
                                     <div class="d">Medical professionals cannot reliably answer origin questions from official product information or identify suitable alternatives when origin is obscured.</div>
@@ -428,13 +425,13 @@
 
                         <div class="cons-item">
                             <div class="icon-row">
-                                <span class="ico-red" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M12 8v5"></path>
-                                        <path d="M12 16h.01"></path>
-                                    </svg>
-                                </span>
+                <span class="ico-red" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v5"></path>
+                    <path d="M12 16h.01"></path>
+                  </svg>
+                </span>
                                 <div>
                                     <div class="t">Creates indirect discrimination risk</div>
                                     <div class="d">Lack of origin disclosure disproportionately affects people whose ethical or religious convictions require avoiding certain animal-derived ingredients.</div>
@@ -457,12 +454,12 @@
 
                     <div class="mt-4 cons-item">
                         <div class="icon-row">
-                            <span class="ico-green" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M8 12l2.5 2.5L16 9"></path>
-                                </svg>
-                            </span>
+              <span class="ico-green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 12l2.5 2.5L16 9"></path>
+                </svg>
+              </span>
                             <div>
                                 <div class="t">The EU can mandate labelling to show clearly when animal-derived products are used in medicines.</div>
                                 <div class="d">Manufacturers already track excipient origin in the supply chain, so disclosure is mainly a labelling, not a formulation change. Disclosure reduces uncertainty for patients and healthcare professionals without changing formulations, with minimal cost and no impact on medicine availability.</div>
@@ -518,7 +515,7 @@
                     </div>
 
                     <div class="mt-5 flex justify-end">
-                        <a href="2026-01-30 Ares(2026)1090942.pdf"
+                        <a href="2026-01-30%20Ares%282026%291090942.pdf"
                            target="_blank" rel="noopener"
                            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-stone-300 bg-paper/70 px-5 py-3 text-sm font-semibold text-stone-900 shadow-sm hover:bg-paper/90 hover:border-stone-400 focus:outline-none focus:ring-4 focus:ring-stone-200 btn-ease">
                             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -543,7 +540,7 @@
                     <p class="mt-2 text-base leading-relaxed text-stone-700 sm:text-lg">Detailed brief, Transparency on Animal-Derived Excipients in Human Medicines</p>
 
                     <div class="mt-5 flex justify-end">
-                        <a href="v1.5 Transparency on Animal-Derived Excipients in Human Medicines + Sources.pdf"
+                        <a href="v1.5%20Transparency%20on%20Animal-Derived%20Excipients%20in%20Human%20Medicines%20+%20Sources.pdf"
                            target="_blank" rel="noopener"
                            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-stone-300 bg-paper/70 px-5 py-3 text-sm font-semibold text-stone-900 shadow-sm hover:bg-paper/90 hover:border-stone-400 focus:outline-none focus:ring-4 focus:ring-stone-200 btn-ease">
                             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -571,22 +568,22 @@
                             <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
                                 <span>Which medicines are affected?</span>
                                 <span class="expand-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </span>
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
                             </button>
-                            <div class="expand-panel"><div class="expand-body">It has been estimated that most medicines use animal-derived excipients.</div></div>
+                            <div class="expand-panel"><div class="expand-body">Many medicines use excipients that can be animal-derived, including capsules, tablets, and coatings.</div></div>
                         </div>
 
                         <div class="expand expand-item" data-open="false">
                             <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
                                 <span>What about current EU regulations?</span>
                                 <span class="expand-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </span>
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
                             </button>
                             <div class="expand-panel"><div class="expand-body">EU rules require excipient names to be listed, but they do not require species origin, so origin can remain unclear even when an excipient is named.</div></div>
                         </div>
@@ -595,10 +592,10 @@
                             <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
                                 <span>Why does species origin matter?</span>
                                 <span class="expand-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </span>
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
                             </button>
                             <div class="expand-panel"><div class="expand-body">Species origin can determine whether a medicine is acceptable for ethical, cultural, or religious reasons, and medicines are often unavoidable.</div></div>
                         </div>
@@ -607,10 +604,10 @@
                             <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
                                 <span>How difficult would this be for manufacturers?</span>
                                 <span class="expand-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </span>
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
                             </button>
                             <div class="expand-panel"><div class="expand-body">Manufacturers typically document origin for supply-chain and quality-control purposes, so the main change is standardised disclosure.</div></div>
                         </div>
@@ -619,10 +616,10 @@
                             <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
                                 <span>What policy options exist?</span>
                                 <span class="expand-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </span>
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
                             </button>
                             <div class="expand-panel"><div class="expand-body">Options include origin qualifiers in product information, a standardised symbol or notation, and an EU-level origin database linked to digital labelling.</div></div>
                         </div>
@@ -649,17 +646,23 @@
                     <input type="hidden" name="_subject" value="MedicineTransparency.eu contact form submission" />
 
                     <div class="grid gap-3">
-                        <label for="c_name" class="sr-only">Name</label>
-                        <input id="c_name" class="w-full rounded-2xl border border-stone-300 bg-paper/60 px-4 py-3 text-stone-900 shadow-sm focus:outline-none focus:ring-4 focus:ring-stone-200"
-                               type="text" name="name" placeholder="Name" autocomplete="name" />
+                        <div>
+                            <label class="sr-only" for="name">Name</label>
+                            <input id="name" class="w-full rounded-2xl border border-stone-300 bg-paper/60 px-4 py-3 text-stone-900 shadow-sm focus:outline-none focus:ring-4 focus:ring-stone-200"
+                                   type="text" name="name" placeholder="Name" autocomplete="name" />
+                        </div>
 
-                        <label for="c_email" class="sr-only">Email</label>
-                        <input id="c_email" class="w-full rounded-2xl border border-stone-300 bg-paper/60 px-4 py-3 text-stone-900 shadow-sm focus:outline-none focus:ring-4 focus:ring-stone-200"
-                               type="email" name="email" placeholder="Email" autocomplete="email" required />
+                        <div>
+                            <label class="sr-only" for="email">Email</label>
+                            <input id="email" class="w-full rounded-2xl border border-stone-300 bg-paper/60 px-4 py-3 text-stone-900 shadow-sm focus:outline-none focus:ring-4 focus:ring-stone-200"
+                                   type="email" name="email" placeholder="Email" autocomplete="email" required />
+                        </div>
 
-                        <label for="c_msg" class="sr-only">Message</label>
-                        <textarea id="c_msg" class="min-h-[130px] w-full rounded-2xl border border-stone-300 bg-paper/60 px-4 py-3 text-stone-900 shadow-sm focus:outline-none focus:ring-4 focus:ring-stone-200"
-                                  name="message" placeholder="Message" required></textarea>
+                        <div>
+                            <label class="sr-only" for="message">Message</label>
+                            <textarea id="message" class="min-h-[130px] w-full rounded-2xl border border-stone-300 bg-paper/60 px-4 py-3 text-stone-900 shadow-sm focus:outline-none focus:ring-4 focus:ring-stone-200"
+                                      name="message" placeholder="Message" required></textarea>
+                        </div>
 
                         <button id="contactBtn" type="submit"
                                 class="inline-flex items-center justify-center gap-2 rounded-2xl border border-stone-300 bg-paper/70 px-6 py-3 text-base font-semibold text-stone-900 shadow-sm hover:bg-paper/90 hover:border-stone-400 focus:outline-none focus:ring-4 focus:ring-stone-200 btn-ease">
@@ -706,11 +709,12 @@
         function setNavHeight() {
             if (!header) return;
             const h = Math.ceil(header.getBoundingClientRect().height);
-            document.documentElement.style.setProperty("--nav-h", (h + 12) + "px");
+            document.documentElement.style.setProperty("--nav-h", h + "px");
         }
         window.addEventListener("load", setNavHeight);
         window.addEventListener("resize", setNavHeight);
         setNavHeight();
+        window.__setNavHeight = setNavHeight;
     })();
 </script>
 
@@ -722,6 +726,7 @@
         function setOpen(open) {
             panel.dataset.open = open ? "true" : "false";
             btn.setAttribute("aria-expanded", open ? "true" : "false");
+            if (window.__setNavHeight) window.__setNavHeight();
         }
 
         btn.addEventListener("click", () => {
@@ -730,7 +735,21 @@
         });
 
         panel.querySelectorAll("a[href^='#']").forEach(a => {
-            a.addEventListener("click", () => setOpen(false));
+            a.addEventListener("click", (e) => {
+                const href = a.getAttribute("href") || "";
+                const id = href.startsWith("#") ? href.slice(1) : "";
+                const target = id ? document.getElementById(id) : null;
+                if (!target) return;
+
+                e.preventDefault();
+                setOpen(false);
+
+                setTimeout(() => {
+                    if (window.__setNavHeight) window.__setNavHeight();
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    history.replaceState(null, "", "#" + id);
+                }, 230);
+            });
         });
     })();
 </script>

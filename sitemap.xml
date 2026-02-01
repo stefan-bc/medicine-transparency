@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MedicineTransparency.eu | Animal-derived excipients disclosure in EU medicines</title>
+    <meta name="description" content="MedicineTransparency.eu advocates EU medicine labelling that discloses animal-derived excipients and species origin (gelatine, lactose, magnesium stearate, glycerol, shellac) so patients can make informed choices." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#F0E3D3" />
+
+    <link rel="canonical" href="https://www.medicinetransparency.eu/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MedicineTransparency.eu" />
+    <meta property="og:title" content="MedicineTransparency.eu | Animal-derived excipients disclosure in EU medicines" />
+    <meta property="og:description" content="EU advocacy for medicine labelling that discloses animal-derived excipients and species origin." />
+    <meta property="og:url" content="https://www.medicinetransparency.eu/" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="MedicineTransparency.eu | Animal-derived excipients disclosure in EU medicines" />
+    <meta name="twitter:description" content="EU advocacy for medicine labelling that discloses animal-derived excipients and species origin." />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232B6CB0%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23235A93%27/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%27cap%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23FFFFFF%27%20stop-opacity%3D%270.98%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23FFFFFF%27%20stop-opacity%3D%270.72%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20x%3D%278%27%20y%3D%2720%27%20width%3D%2748%27%20height%3D%2724%27%20rx%3D%2712%27%20fill%3D%27url(%23g)%27/%3E%3Cg%20transform%3D%27translate(13.5%2022.2)%27%3E%3Crect%20x%3D%270%27%20y%3D%270%27%20width%3D%2737%27%20height%3D%2719.6%27%20rx%3D%279.8%27%20fill%3D%27url(%23cap)%27/%3E%3Cpath%20d%3D%27M18.5%201.3%20V18.3%27%20stroke%3D%27rgba(35%2C90%2C147%2C0.82)%27%20stroke-width%3D%272.3%27%20stroke-linecap%3D%27round%27/%3E%3Ccircle%20cx%3D%276.6%27%20cy%3D%279.8%27%20r%3D%271.2%27%20fill%3D%27rgba(35%2C90%2C147%2C0.33)%27/%3E%3Ccircle%20cx%3D%2730.2%27%20cy%3D%279.8%27%20r%3D%271.2%27%20fill%3D%27rgba(35%2C90%2C147%2C0.33)%27/%3E%3C/g%3E%3C/svg%3E" />
+
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"WebSite",
+            "name":"MedicineTransparency.eu",
+            "url":"https://www.medicinetransparency.eu/",
+            "description":"EU advocacy for medicine labelling that discloses animal-derived excipients and species origin."
+        }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        /** @type {{ config?: any }} */ window.tailwind = window.tailwind || {};
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 600: "#2B6CB0", 700: "#235A93" },
+                        accent: { 600: "#F59E0B", 700: "#D97706" },
+                        paper: "#F0E3D3"
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        :root{
+            --paper:#F0E3D3;
+            --paperHeaderRGB:238,223,207;
+            --nav-h:96px;
+        }
+
+        html{ scroll-behavior:smooth; }
+        section[id]{ scroll-margin-top:var(--nav-h); }
+        #overview{ scroll-margin-top:var(--nav-h); }
+
+        body{
+            background:
+                    radial-gradient(900px 650px at 20% 12%, rgba(245,158,11,0.14), transparent 62%),
+                    radial-gradient(900px 650px at 82% 18%, rgba(234, 88, 12, 0.10), transparent 64%),
+                    radial-gradient(900px 750px at 55% 92%, rgba(217, 119, 6, 0.08), transparent 68%),
+                    var(--paper);
+        }
+
+        .btn-ease{
+            transition:
+                    background-color 180ms ease,
+                    border-color 180ms ease,
+                    color 180ms ease,
+                    box-shadow 180ms ease,
+                    opacity 180ms ease,
+                    transform 180ms ease,
+                    filter 180ms ease;
+        }
+        @media (hover:hover) and (pointer:fine){
+            .btn-ease:not(:hover){
+                transition:
+                        background-color 1000ms ease,
+                        border-color 1000ms ease,
+                        color 1000ms ease,
+                        box-shadow 1000ms ease,
+                        opacity 1000ms ease,
+                        transform 1000ms ease,
+                        filter 1000ms ease;
+            }
+        }
+
+        .mobile-panel{ max-height:0; overflow:hidden; transition:max-height 220ms ease; }
+        .mobile-panel[data-open="true"]{ max-height:560px; }
+
+        .navlink{
+            display:inline-block;
+            padding:10px 12px;
+            border-radius:14px;
+            border-bottom:0;
+        }
+        .navlink:hover{
+            background:rgba(120,113,108,0.14);
+            color:rgb(41,37,36);
+            box-shadow:0 12px 26px rgba(0,0,0,0.10);
+            transform:translateY(-1px);
+        }
+        .navlink:active{
+            background:rgba(120,113,108,0.22);
+            color:rgb(28,25,23);
+            box-shadow:0 7px 18px rgba(0,0,0,0.10);
+            transform:translateY(0px) scale(0.99);
+        }
+        .navlink:focus-visible{
+            outline:none;
+            box-shadow:0 0 0 5px rgba(120,113,108,0.22);
+        }
+
+        .hero-title{
+            font-size:clamp(2.65rem, 7.6vw, 4.1rem);
+            line-height:1.03;
+        }
+
+        .panel{
+            background:transparent;
+            border:1px solid rgba(120,113,108,0.22);
+            border-radius:24px;
+        }
+
+        .icon-row{ display:flex; gap:10px; align-items:flex-start; }
+        .ico-red{ color:rgb(220,38,38); }
+        .ico-green{ color:rgb(22,163,74); }
+        .ico-red svg, .ico-green svg{ display:block; }
+
+        .h-main{
+            font-size:1.875rem;
+            line-height:2.25rem;
+            font-weight:800;
+            letter-spacing:-0.02em;
+            color:rgb(41,37,36);
+        }
+        @media (min-width:640px){
+            .h-main{ font-size:2.25rem; line-height:2.5rem; }
+        }
+
+        .why-lead p{ font-size:1.10rem; line-height:1.8rem; }
+        @media (min-width:640px){ .why-lead p{ font-size:1.14rem; } }
+
+        .cons-list{ margin-top:10px; display:grid; gap:14px; }
+        .cons-item .t{ font-weight:700; font-size:1.05rem; line-height:1.45rem; color:rgb(41,37,36); }
+        .cons-item .d{ margin-top:4px; font-size:1.05rem; line-height:1.7rem; color:rgb(87,83,78); }
+
+        .quote-text{
+            font-size:1rem;
+            line-height:1.65rem;
+            color:rgb(87,83,78);
+        }
+        .sol-list{ margin-top:10px; display:grid; gap:8px; }
+        .sol-list .row{ font-size:1rem; line-height:1.65rem; color:rgb(87,83,78); }
+
+        .subhead{
+            margin-top:18px;
+            font-weight:400;
+            font-size:1.08rem;
+            line-height:1.55rem;
+            color:rgb(41,37,36);
+        }
+        @media (min-width:640px){ .subhead{ font-size:1.10rem; } }
+
+        .subbox-mustard{
+            border:1px solid rgba(245,158,11,0.18);
+            background:rgba(245,158,11,0.045);
+            border-radius:16px;
+            padding:16px;
+        }
+        @media (min-width:640px){ .subbox-mustard{ padding:18px; } }
+
+        .sr-only{
+            position:absolute;
+            width:1px;
+            height:1px;
+            padding:0;
+            margin:-1px;
+            overflow:hidden;
+            clip:rect(0,0,0,0);
+            white-space:nowrap;
+            border:0;
+        }
+
+        .menu-btn{
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+            touch-action:manipulation;
+            user-select:none;
+            cursor:pointer;
+            outline:none;
+            pointer-events:auto;
+            background:rgba(240,227,211,0.92);
+            border:1px solid rgba(120,113,108,0.62);
+            transition:
+                    background-color 110ms ease,
+                    border-color 110ms ease,
+                    box-shadow 110ms ease,
+                    transform 110ms ease,
+                    filter 110ms ease;
+        }
+        .menu-btn:hover{
+            background:rgba(228,214,197,0.98);
+            border-color:rgba(120,113,108,0.96);
+            box-shadow:0 14px 34px rgba(0,0,0,0.14);
+            transform:translateY(-1px);
+            filter:saturate(1.06);
+        }
+        .menu-btn.is-press{
+            background:rgba(216,199,180,1);
+            border-color:rgba(120,113,108,1);
+            box-shadow:0 10px 24px rgba(0,0,0,0.16);
+            transform:scale(0.965);
+            filter:saturate(1.10);
+        }
+        .menu-btn.is-open{
+            background:rgba(216,199,180,1);
+            border-color:rgba(120,113,108,1);
+            box-shadow:0 16px 38px rgba(0,0,0,0.14);
+            filter:saturate(1.08);
+        }
+        .menu-btn:focus-visible{
+            box-shadow:0 0 0 5px rgba(120,113,108,0.24);
+        }
+
+        .mobile-panel .mnav-link{
+            position:relative;
+            border-radius:16px;
+            padding:10px 12px;
+            transition:background-color 110ms ease, transform 110ms ease, filter 110ms ease;
+        }
+        .mobile-panel .mnav-link:hover{
+            background:rgba(216,199,180,0.35);
+        }
+        .mobile-panel .mnav-link.is-press{
+            background:rgba(216,199,180,0.55);
+            transform:scale(0.985);
+            filter:saturate(1.06);
+        }
+        .tap-ripple{
+            position:absolute;
+            inset:0;
+            border-radius:inherit;
+            background:rgba(87,83,78,0.10);
+            opacity:0;
+            pointer-events:none;
+            transition:opacity 140ms ease;
+        }
+        .mnav-link.is-press .tap-ripple{ opacity:1; }
+
+        .tip{ position:relative; display:inline-block; }
+        .tip .tip-bubble{
+            position:absolute;
+            left:50%;
+            bottom:calc(100% + 10px);
+            width:max-content;
+            max-width:280px;
+            padding:10px 12px;
+            border-radius:14px;
+            border:1px solid rgba(120,113,108,0.25);
+            background:rgba(240,227,211,0.985);
+            color:rgb(41,37,36);
+            box-shadow:0 10px 25px rgba(0,0,0,0.08);
+            opacity:0;
+            pointer-events:none;
+            transition:opacity 180ms ease, transform 180ms ease;
+            transform:translateX(-50%) translateY(4px);
+            z-index:20;
+            font-size:0.95rem;
+            line-height:1.25rem;
+        }
+        .tip:hover .tip-bubble{ opacity:1; transform:translateX(-50%) translateY(0); }
+        .tip[data-open="true"] .tip-bubble{ opacity:1; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+        .tip-trigger{
+            appearance:none;
+            border:0;
+            padding:0;
+            margin:0;
+            background:transparent;
+            font:inherit;
+            color:inherit;
+            cursor:pointer;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+            -webkit-touch-callout:none;
+            -webkit-user-select:none;
+            user-select:none;
+        }
+
+        .expand{ border-top:1px solid rgba(120,113,108,0.18); }
+        .expand:first-child{ border-top:0; }
+
+        .expand-btn{
+            width:100%;
+            display:flex;
+            align-items:flex-start;
+            justify-content:space-between;
+            gap:14px;
+            padding:8px 0;
+            text-align:left;
+            font-weight:700;
+            color:rgb(41,37,36);
+            transition:color 180ms ease;
+        }
+        .expand-btn:hover{ color:rgb(28,25,23); }
+
+        .expand-icon{
+            flex:0 0 auto;
+            margin-top:2px;
+            transition:transform 200ms ease;
+            color:rgba(68,64,60,0.9);
+        }
+
+        .expand-panel{
+            overflow:hidden;
+            max-height:0;
+            opacity:0;
+            transform:translateY(-2px);
+            transition:max-height 260ms ease, opacity 200ms ease, transform 200ms ease;
+        }
+
+        .expand-item[data-open="true"] .expand-panel{ opacity:1; transform:translateY(0); }
+        .expand-item[data-open="true"] .expand-icon{ transform:rotate(180deg); }
+
+        .expand-body{
+            padding:0 0 10px 0;
+            color:rgb(87,83,78);
+            font-size:1.04rem;
+            line-height:1.65rem;
+        }
+
+        /* form text should not go blue on iOS */
+        input, textarea{
+            color:rgb(87,83,78) !important;
+            -webkit-text-fill-color:rgb(87,83,78) !important;
+        }
+        input::placeholder, textarea::placeholder{
+            color:rgba(87,83,78,0.70) !important;
+            -webkit-text-fill-color:rgba(87,83,78,0.70) !important;
+        }
+    </style>
+</head>
+
+<body class="text-stone-800">
+<div id="top"></div>
+
+<header id="siteHeader"
+        class="sticky top-0 z-50 border-b border-stone-200/80"
+        style="background:rgba(var(--paperHeaderRGB),0.78); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+    <div class="mx-auto max-w-6xl px-5 sm:px-6">
+        <div class="flex items-center justify-between py-4">
+            <a href="#overview" class="flex items-center gap-3">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-600 shadow-sm">
+          <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="capFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.98"></stop>
+                <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.72"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="3.3" y="6.9" width="17.4" height="10.2" rx="5.1" fill="url(#capFill)"></rect>
+            <path d="M12 7.7v8.6" stroke="rgba(35,90,147,0.82)" stroke-width="2" stroke-linecap="round"></path>
+            <circle cx="7.5" cy="12" r="0.95" fill="rgba(35,90,147,0.32)"></circle>
+            <circle cx="16.5" cy="12" r="0.95" fill="rgba(35,90,147,0.32)"></circle>
+          </svg>
+        </span>
+                <span class="text-lg font-semibold tracking-tight sm:text-xl text-stone-800">MedicineTransparency.eu</span>
+            </a>
+
+            <nav class="hidden items-center gap-2 lg:flex" aria-label="Primary">
+                <a href="#overview" class="navlink text-stone-700 btn-ease">Overview</a>
+                <a href="#problem" class="navlink text-stone-700 btn-ease">Why?</a>
+                <a href="#solution" class="navlink text-stone-700 btn-ease">Solution</a>
+                <a href="#commission" class="navlink text-stone-700 btn-ease">EC Response</a>
+                <a href="#evidence" class="navlink text-stone-700 btn-ease">Evidence</a>
+                <a href="#faq" class="navlink text-stone-700 btn-ease">FAQ</a>
+                <a href="#contact" class="navlink text-stone-700 btn-ease">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="v1.5%20Transparency%20on%20Animal-Derived%20Excipients%20in%20Human%20Medicines%20+%20Sources.pdf"
+                   target="_blank" rel="noopener"
+                   class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-accent-600 px-4 py-2.5 text-sm font-semibold text-stone-900 shadow-sm hover:bg-accent-700 focus:outline-none focus:ring-4 focus:ring-amber-200 btn-ease">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Download PDF</span>
+                </a>
+
+                <button id="mobileBtn" type="button"
+                        class="menu-btn inline-flex lg:hidden items-center justify-center rounded-2xl p-2.5 text-stone-700 shadow-sm btn-ease"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+                    <svg id="menuIconOpen" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16"></path>
+                        <path d="M4 12h16"></path>
+                        <path d="M4 17h16"></path>
+                    </svg>
+                    <svg id="menuIconClose" viewBox="0 0 24 24" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M6 6l12 12"></path>
+                        <path d="M18 6l-12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobilePanel" class="mobile-panel lg:hidden" data-open="false">
+            <div class="pb-4">
+                <div class="grid gap-2 rounded-3xl border border-stone-200 bg-paper p-4 shadow-sm" aria-label="Mobile navigation">
+                    <a href="#overview" class="mnav-link text-stone-800 btn-ease">Overview<span class="tap-ripple"></span></a>
+                    <a href="#problem" class="mnav-link text-stone-800 btn-ease">Why?<span class="tap-ripple"></span></a>
+                    <a href="#solution" class="mnav-link text-stone-800 btn-ease">Solution<span class="tap-ripple"></span></a>
+                    <a href="#commission" class="mnav-link text-stone-800 btn-ease">EC Response<span class="tap-ripple"></span></a>
+                    <a href="#evidence" class="mnav-link text-stone-800 btn-ease">Evidence<span class="tap-ripple"></span></a>
+                    <a href="#faq" class="mnav-link text-stone-800 btn-ease">FAQ<span class="tap-ripple"></span></a>
+                    <a href="#contact" class="mnav-link text-stone-800 btn-ease">Contact<span class="tap-ripple"></span></a>
+
+                    <a href="v1.5%20Transparency%20on%20Animal-Derived%20Excipients%20in%20Human%20Medicines%20+%20Sources.pdf"
+                       target="_blank" rel="noopener"
+                       class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent-600 px-4 py-2.5 text-sm font-semibold text-stone-900 shadow-sm hover:bg-accent-700 focus:outline-none focus:ring-4 focus:ring-amber-200 btn-ease">
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Download PDF</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<main id="overview" class="mx-auto max-w-6xl px-5 sm:px-6">
+    <section class="py-9 sm:py-11 md:py-14">
+        <div class="mx-auto max-w-4xl text-center">
+            <div class="mx-auto inline-flex items-center gap-2 rounded-full border border-stone-200 bg-paper px-4 py-2 text-sm font-semibold text-stone-700 shadow-sm">
+                <span class="inline-flex h-2 w-2 rounded-full bg-red-500"></span>
+                <span>EU advocacy initiative</span>
+            </div>
+
+            <br><p> </p>
+
+            <h1 class="hero-title mt-5 font-extrabold tracking-tight text-stone-800">
+                Disclose animal-derived<br class="hidden sm:block" />
+                ingredients in <span class="text-brand-700">EU medicines</span>
+            </h1>
+
+            <br><br>
+
+            <p class="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-stone-700 sm:text-lg">
+                If you are vegan or vegetarian, or follow Hindu, Muslim, Buddhist, Jewish, or other dietary rules, you may need to know the animal species source.
+            </p>
+
+            <br><br>
+
+            <div class="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <a href="https://www.europarl.europa.eu/meps/en/search/advanced?name=&euPoliticalGroupBodyRefNum=&countryCode=&bodyType=ALL"
+                   target="_blank" rel="noopener"
+                   class="inline-flex items-center justify-center gap-2 rounded-2xl bg-stone-700 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-stone-200 btn-ease">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="rgba(229,231,235,0.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 4h16v16H4z"></path>
+                        <path d="M22 6l-10 7L2 6"></path>
+                    </svg>
+                    <span>Contact MEPs</span>
+                </a>
+
+                <a href="#problem"
+                   class="inline-flex items-center justify-center gap-2 rounded-2xl bg-stone-700 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-stone-200 btn-ease">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="rgba(229,231,235,0.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 20h9"></path>
+                        <path d="M12 4h9"></path>
+                        <path d="M4 9h16"></path>
+                        <path d="M4 15h16"></path>
+                    </svg>
+                    <span>Read more</span>
+                </a>
+            </div>
+
+            <div class="mt-4 text-sm text-stone-600">
+                <a href="mailto:?subject=Species%20origin%20disclosure%20for%20excipients%20in%20EU%20medicines&body=Hello%2C%0A%0AI%20am%20writing%20to%20ask%20that%20you%20raise%20the%20issue%20of%20species%20origin%20disclosure%20for%20excipients%20in%20medicinal%20products.%20EU%20rules%20require%20excipient%20names%2C%20but%20they%20do%20not%20reliably%20require%20species%20origin%20for%20animal-derived%20excipients.%0A%0AI%20support%20standard%20origin%20qualifiers%20in%20regulated%20product%20information%2C%20so%20patients%20can%20make%20informed%20choices%20aligned%20with%20ethical%2C%20cultural%2C%20or%20religious%20beliefs.%0A%0AFor%20more%20information%20please%20see%3A%20https%3A%2F%2Fwww.medicinetransparency.eu%2F%0A%0AThanks%2C"
+                   class="underline underline-offset-4 hover:text-stone-700 btn-ease">
+                    Download MEP email template
+                </a>
+                <br>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <section id="problem" class="pb-10 sm:pb-12">
+        <div class="mx-auto max-w-4xl">
+            <div class="panel p-6 sm:p-8">
+                <div class="max-w-3xl why-lead">
+                    <h2 class="h-main">Why is non-disclosure a problem?</h2>
+
+                    <p class="mt-4 text-base leading-relaxed text-stone-700 sm:text-lg">
+                        Animal ingredients in
+                        <span class="tip" data-open="false">
+              <button type="button" class="tip-trigger underline decoration-dotted underline-offset-4">excipients</button>
+              <span class="tip-bubble">Inactive ingredients such as capsule shells, fillers, and coatings.</span>
+            </span>
+                        can create a serious ethical concern because their origin is often not disclosed by manufacturers.
+                    </p>
+
+                    <div class="mt-6 cons-list">
+                        <div class="cons-item">
+                            <div class="icon-row">
+                <span class="ico-red" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v5"></path>
+                    <path d="M12 16h.01"></path>
+                  </svg>
+                </span>
+                                <div>
+                                    <div class="t">Prevents informed consent</div>
+                                    <div class="d">Animal species origin determines acceptability for many ethical and religious convictions, while medicines are often unavoidable.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cons-item">
+                            <div class="icon-row">
+                <span class="ico-red" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v5"></path>
+                    <path d="M12 16h.01"></path>
+                  </svg>
+                </span>
+                                <div>
+                                    <div class="t">Affects clinicians and pharmacists</div>
+                                    <div class="d">Medical professionals cannot reliably answer origin questions from official product information or identify suitable alternatives when origin is obscured.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cons-item">
+                            <div class="icon-row">
+                <span class="ico-red" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v5"></path>
+                    <path d="M12 16h.01"></path>
+                  </svg>
+                </span>
+                                <div>
+                                    <div class="t">Creates indirect discrimination risk</div>
+                                    <div class="d">Lack of origin disclosure disproportionately affects people whose ethical or religious convictions require avoiding certain animal-derived ingredients.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mt-4 text-base leading-relaxed text-stone-700 sm:text-lg"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="pb-10 sm:pb-12">
+        <div class="mx-auto max-w-4xl">
+            <div class="panel p-6 sm:p-8">
+                <div class="max-w-3xl">
+                    <h2 class="h-main">Solution</h2>
+
+                    <div class="mt-4 cons-item">
+                        <div class="icon-row">
+              <span class="ico-green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 12l2.5 2.5L16 9"></path>
+                </svg>
+              </span>
+                            <div>
+                                <div class="t">The EU can mandate labelling to show clearly when animal-derived products are used in medicines.</div>
+                                <div class="d">Manufacturers already track excipient origin in the supply chain, so disclosure is mainly a labelling, not a formulation change. Disclosure reduces uncertainty for patients and healthcare professionals without changing formulations, with minimal cost and no impact on medicine availability.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 subbox-mustard">
+                        <div class="subhead" style="margin-top:0;">Example labelling:</div>
+                        <br>
+                        <div class="sol-list">
+                            <div class="row"><span class="font-semibold text-stone-800">Gelatine</span> (animal-derived, porcine/bovine/fish)</div>
+                            <div class="row"><span class="font-semibold text-stone-800">Glycerol</span> (plant-derived/synthetic or animal-derived, porcine/bovine/ovine/caprine)</div>
+                            <div class="row"><span class="font-semibold text-stone-800">Magnesium stearate</span> (plant-derived/synthetic or animal-derived, porcine/bovine/ovine/caprine)</div>
+                            <div class="row"><span class="font-semibold text-stone-800">Lactose</span> (animal-derived, bovine)</div>
+                            <div class="row"><span class="font-semibold text-stone-800">Shellac</span> (animal-derived, insect)</div>
+                        </div>
+                        <p class="mt-4 text-sm text-stone-600">Examples show the disclosure format, not a complete list.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="commission" class="pb-10 sm:pb-12">
+        <div class="mx-auto max-w-4xl">
+            <div class="panel p-6 sm:p-8">
+                <div class="max-w-3xl">
+                    <h2 class="h-main">Response from the European Commission</h2>
+
+                    <p class="mt-2 text-base leading-relaxed text-stone-700 sm:text-lg">
+                        The Commission confirms the EU labelling gap on species origin for excipients in their letter.
+                    </p>
+
+                    <br>
+
+                    <div class="mt-4 subbox-mustard">
+                        <div class="subhead" style="margin-top:0;">Key excerpts:</div>
+                        <br>
+
+                        <blockquote class="mt-3 border-l-4 border-accent-600 pl-4 quote-text">
+                            “Articles 54 and 59 of Directive 2001/83/EC do not necessitate the disclosure of the species origin of excipients.”
+                        </blockquote>
+
+                        <blockquote class="mt-3 border-l-4 border-accent-600 pl-4 quote-text">
+                            “We recognise the importance of enabling patients to make informed choices in line with their ethical, cultural, or religious beliefs.”
+                        </blockquote>
+
+                        <blockquote class="mt-3 border-l-4 border-accent-600 pl-4 quote-text">
+                            “We will consider your points in discussions and studies related to improving transparency in medicinal labelling.”
+                        </blockquote>
+                    </div>
+
+                    <div class="mt-5 flex justify-end">
+                        <a href="2026-01-30%20Ares%282026%291090942.pdf"
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center justify-center gap-2 rounded-2xl bg-stone-700 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-stone-200 btn-ease">
+                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="rgba(229,231,235,0.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            <span>View / download letter</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="evidence" class="pb-10 sm:pb-12">
+        <div class="mx-auto max-w-4xl">
+            <div class="panel p-6 sm:p-8">
+                <div class="max-w-3xl">
+                    <h2 class="h-main">Evidence and documents</h2>
+                    <p class="mt-2 text-base leading-relaxed text-stone-700 sm:text-lg">Detailed brief, Transparency on Animal-Derived Excipients in Human Medicines</p>
+
+                    <div class="mt-5 flex justify-end">
+                        <a href="v1.5%20Transparency%20on%20Animal-Derived%20Excipients%20in%20Human%20Medicines%20+%20Sources.pdf"
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center justify-center gap-2 rounded-2xl bg-stone-700 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-stone-200 btn-ease">
+                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="rgba(229,231,235,0.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            <span>View / download brief</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="pb-12 sm:pb-14 md:pb-16">
+        <div class="mx-auto max-w-4xl">
+            <div class="panel p-6 sm:p-8">
+                <div class="max-w-3xl">
+                    <h2 class="h-main">Frequently Asked Questions</h2>
+
+                    <div class="mt-4">
+                        <div class="expand expand-item" data-open="false">
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
+                                <span>Which medicines are affected?</span>
+                                <span class="expand-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+                            </button>
+                            <div class="expand-panel"><div class="expand-body">Research indicates that most medicines use animal-derived excipients, including capsules, tablets, and coatings.</div></div>
+                        </div>
+
+                        <div class="expand expand-item" data-open="false">
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
+                                <span>What about current EU regulations?</span>
+                                <span class="expand-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+                            </button>
+                            <div class="expand-panel"><div class="expand-body">EU rules require excipient names to be listed, but they do not require species origin, so it often remains unclear.</div></div>
+                        </div>
+
+                        <div class="expand expand-item" data-open="false">
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
+                                <span>Why does species origin matter?</span>
+                                <span class="expand-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+                            </button>
+                            <div class="expand-panel"><div class="expand-body">Species origin can determine whether a medicine is acceptable for ethical, cultural, or religious reasons, while medicines are often unavoidable.</div></div>
+                        </div>
+
+                        <div class="expand expand-item" data-open="false">
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
+                                <span>How difficult would this be for manufacturers?</span>
+                                <span class="expand-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+                            </button>
+                            <div class="expand-panel"><div class="expand-body">They typically document origin for supply-chain and quality-control purposes, so the main change is standardised disclosure.</div></div>
+                        </div>
+
+                        <div class="expand expand-item" data-open="false">
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false">
+                                <span>What policy options exist?</span>
+                                <span class="expand-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+                            </button>
+                            <div class="expand-panel"><div class="expand-body">Options include origin qualifiers in product information, a standardised symbol or notation on the box and/or Package leaflet, and an EU-level origin database linked to digital labelling.</div></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="pb-14 sm:pb-16 md:pb-20">
+        <div class="mx-auto max-w-4xl">
+            <div class="panel p-6 sm:p-8">
+                <div class="max-w-3xl">
+                    <h2 class="h-main">Contact</h2>
+                    <p class="mt-2 text-base leading-relaxed text-stone-700 sm:text-lg">If you have questions or want to contribute with evidence, drafting, outreach, and web.</p>
+                </div>
+
+                <form id="contactForm" class="mt-6 w-full max-w-3xl" action="https://formspree.io/f/xnjvejvk" method="POST">
+                    <div style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
+                        <label>Do not fill this<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="MedicineTransparency.eu contact form submission" />
+
+                    <div class="grid gap-3">
+                        <div>
+                            <label class="sr-only" for="name">Name</label>
+                            <input id="name" class="w-full rounded-2xl border border-stone-300 bg-paper/70 px-4 py-3 shadow-sm focus:outline-none focus:ring-4 focus:ring-stone-200"
+                                   type="text" name="name" placeholder="Name" autocomplete="name" />
+                        </div>
+
+                        <div>
+                            <label class="sr-only" for="email">Email</label>
+                            <input id="email" class="w-full rounded-2xl border border-stone-300 bg-paper/70 px-4 py-3 shadow-sm focus:outline-none focus:ring-4 focus:ring-stone-200"
+                                   type="email" name="email" placeholder="Email" autocomplete="email" required />
+                        </div>
+
+                        <div>
+                            <label class="sr-only" for="message">Message</label>
+                            <textarea id="message" class="min-h-[130px] w-full rounded-2xl border border-stone-300 bg-paper/70 px-4 py-3 shadow-sm focus:outline-none focus:ring-4 focus:ring-stone-200"
+                                      name="message" placeholder="Message" required></textarea>
+                        </div>
+
+                        <button id="contactBtn" type="submit"
+                                class="inline-flex items-center justify-center gap-2 rounded-2xl bg-stone-700 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-stone-200 btn-ease">
+                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="rgba(229,231,235,0.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 4h16v16H4z"></path>
+                                <path d="M22 6l-10 7L2 6"></path>
+                            </svg>
+                            <span id="contactBtnText">Send message</span>
+                        </button>
+
+                        <div id="contactStatus" class="hidden rounded-2xl border border-stone-200 bg-paper px-4 py-3 text-sm text-stone-700"></div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="border-t border-stone-200/80" style="background:rgba(var(--paperHeaderRGB),0.92);">
+    <div class="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-10 sm:px-6 sm:flex-row sm:items-start sm:justify-between">
+        <div class="max-w-2xl">
+            <div class="text-sm text-stone-700">
+                <a class="underline underline-offset-4 hover:text-stone-700 btn-ease" href="mailto:info@medicinetransparency.eu">info@medicinetransparency.eu</a>
+            </div>
+            <div class="mt-2 text-sm text-stone-700">This is a citizen-led initiative. You may share and quote with attribution.</div>
+        </div>
+
+        <div class="flex flex-col items-start gap-3 sm:items-end">
+            <a href="#top" id="backToTop" class="inline-flex items-center gap-2 rounded-2xl border border-stone-300 bg-paper px-4 py-2.5 text-stone-700 shadow-sm hover:bg-paper btn-ease" aria-label="Back to top">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 19V5"></path>
+                    <polyline points="6 11 12 5 18 11"></polyline>
+                </svg>
+                <span>Back to top</span>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    (function () {
+        const header = document.getElementById("siteHeader");
+        function setNavHeight() {
+            if (!header) return;
+            const h = Math.ceil(header.getBoundingClientRect().height);
+            document.documentElement.style.setProperty("--nav-h", h + "px");
+        }
+        window.addEventListener("load", setNavHeight);
+        window.addEventListener("resize", setNavHeight);
+        setNavHeight();
+        window.__setNavHeight = setNavHeight;
+    })();
+</script>
+
+<script>
+    (function () {
+        const btn = document.getElementById("mobileBtn");
+        const panel = document.getElementById("mobilePanel");
+        const icoOpen = document.getElementById("menuIconOpen");
+        const icoClose = document.getElementById("menuIconClose");
+        if (!btn || !panel) return;
+
+        function setOpen(open) {
+            panel.dataset.open = open ? "true" : "false";
+            btn.classList.toggle("is-open", open);
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+            btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+            if (icoOpen && icoClose) {
+                icoOpen.classList.toggle("hidden", open);
+                icoClose.classList.toggle("hidden", !open);
+            }
+            if (window.__setNavHeight) window.__setNavHeight();
+        }
+
+        function pressOn() {
+            btn.classList.add("is-press");
+            window.clearTimeout(btn.__pressT);
+            btn.__pressT = window.setTimeout(() => btn.classList.remove("is-press"), 170);
+        }
+        function pressOff() {
+            btn.classList.remove("is-press");
+        }
+
+        btn.addEventListener("pointerdown", pressOn, { passive: true });
+        btn.addEventListener("touchstart", pressOn, { passive: true });
+        btn.addEventListener("pointerup", pressOff, { passive: true });
+        btn.addEventListener("pointercancel", pressOff, { passive: true });
+        btn.addEventListener("touchend", pressOff, { passive: true });
+        btn.addEventListener("touchcancel", pressOff, { passive: true });
+
+        btn.addEventListener("click", () => {
+            const open = panel.dataset.open === "true";
+            setOpen(!open);
+        });
+
+        function flashLink(a) {
+            a.classList.add("is-press");
+            window.clearTimeout(a.__pressT);
+            a.__pressT = window.setTimeout(() => a.classList.remove("is-press"), 170);
+        }
+
+        panel.querySelectorAll("a[href^='#']").forEach(a => {
+            a.addEventListener("click", (e) => {
+                const href = a.getAttribute("href") || "";
+                const id = href.startsWith("#") ? href.slice(1) : "";
+                const target = id ? document.getElementById(id) : null;
+                if (!target) return;
+
+                e.preventDefault();
+                flashLink(a);
+
+                window.setTimeout(() => setOpen(false), 140);
+
+                window.setTimeout(() => {
+                    if (window.__setNavHeight) window.__setNavHeight();
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    history.replaceState(null, "", "#" + id);
+                }, 260);
+            });
+        });
+    })();
+</script>
+
+<script>
+    (function () {
+        const items = Array.from(document.querySelectorAll(".expand-item"));
+
+        function setPanelHeight(item) {
+            const panel = item.querySelector(".expand-panel");
+            if (!panel) return;
+            if (item.dataset.open === "true") panel.style.maxHeight = panel.scrollHeight + "px";
+            else panel.style.maxHeight = "0px";
+        }
+
+        function setState(item, open) {
+            item.dataset.open = open ? "true" : "false";
+            const btn = item.querySelector(".expand-btn-js");
+            if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+            setPanelHeight(item);
+        }
+
+        function toggleSingle(target) {
+            const isOpen = target.dataset.open === "true";
+            if (isOpen) { setState(target, false); return; }
+            items.forEach((it) => setState(it, it === target));
+        }
+
+        items.forEach((item) => {
+            const btn = item.querySelector(".expand-btn-js");
+            if (btn) btn.addEventListener("click", () => toggleSingle(item));
+        });
+
+        items.forEach((item) => setState(item, false));
+        window.addEventListener("resize", () => items.forEach(setPanelHeight));
+    })();
+</script>
+
+<script>
+    (function () {
+        const form = document.getElementById("contactForm");
+        const status = document.getElementById("contactStatus");
+        const btn = document.getElementById("contactBtn");
+        const btnText = document.getElementById("contactBtnText");
+        if (!form || !status || !btn || !btnText) return;
+
+        function show(msg, ok) {
+            status.classList.remove("hidden");
+            status.textContent = msg;
+            status.style.borderColor = ok ? "rgba(16,185,129,0.35)" : "rgba(239,68,68,0.35)";
+            status.setAttribute("role", "status");
+            status.setAttribute("aria-live", "polite");
+        }
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const fd = new FormData(form);
+            if ((fd.get("website") || "").toString().trim() !== "") {
+                show("Message blocked.", false);
+                return;
+            }
+
+            btn.disabled = true;
+            btnText.textContent = "Sending...";
+
+            try {
+                const res = await fetch(form.action, {
+                    method: "POST",
+                    body: fd,
+                    headers: { "Accept": "application/json" }
+                });
+
+                if (res.ok) {
+                    form.reset();
+                    show("Message sent. Thank you.", true);
+                } else {
+                    let msg = "Message failed. Try again.";
+                    try {
+                        const data = await res.json();
+                        if (data && data.errors && Array.isArray(data.errors)) {
+                            msg = data.errors.map(e => e.message).join(", ");
+                        }
+                    } catch (_) {}
+                    show(msg, false);
+                }
+            } catch (_) {
+                show("Message failed. Try again.", false);
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = "Send message";
+            }
+        });
+    })();
+</script>
+
+<script>
+    (function () {
+        const backToTop = document.getElementById("backToTop");
+        if (!backToTop) return;
+
+        backToTop.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            history.replaceState(null, "", "#top");
+        });
+    })();
+</script>
+
+<script>
+    (function () {
+        const tips = Array.from(document.querySelectorAll(".tip"));
+        function closeAll(except) {
+            tips.forEach(t => {
+                if (except && t === except) return;
+                t.dataset.open = "false";
+            });
+        }
+
+        tips.forEach(tip => {
+            const trigger = tip.querySelector(".tip-trigger");
+            if (!trigger) return;
+
+            trigger.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const open = tip.dataset.open === "true";
+                if (open) { tip.dataset.open = "false"; return; }
+                closeAll(tip);
+                tip.dataset.open = "true";
+            });
+        });
+
+        document.addEventListener("click", () => closeAll(null), { passive: true });
+        document.addEventListener("touchstart", () => closeAll(null), { passive: true });
+
+        tips.forEach(tip => {
+            tip.addEventListener("click", (e) => e.stopPropagation());
+            tip.addEventListener("touchstart", (e) => e.stopPropagation(), { passive: true });
+        });
+    })();
+</script>
+</body>
+</html>

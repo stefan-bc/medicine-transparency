@@ -50,9 +50,21 @@
 
     <style>
         :root{
+            /* CHANGE PAGE BASE COLOUR HERE */
             --paper:#FAF1E6;
-            --paperHeader:#F6EBDD;
+
+            /* CHANGE HEADER/FOOTER BASE COLOUR HERE (before transparency is applied) */
+            --paperHeader:#f8edde;
+
             --nav-h:96px;
+
+            /* CHANGE HEADER TRANSPARENCY HERE (0.0 to 1.0) */
+            --headerAlpha:0.76;
+
+            /* CHANGE BACKGROUND GRADIENT STRENGTH HERE (lower opacity = lighter/cleaner) */
+            --bgA:0.085; /* first radial (was effectively stronger) */
+            --bgB:0.055; /* second radial */
+            --bgC:0.022; /* third radial */
         }
 
         html{ scroll-behavior:smooth; }
@@ -60,10 +72,11 @@
         #overview{ scroll-margin-top:var(--nav-h); }
 
         body{
+            /* LIGHTER BACKGROUND: reduce the alpha vars above, or shrink the colour stops */
             background:
-                    radial-gradient(1400px 860px at 18% 10%, rgba(245,158,11,0.075), transparent 66%),
-                    radial-gradient(1300px 860px at 78% 22%, rgba(251,191,36,0.06), transparent 68%),
-                    radial-gradient(1300px 960px at 55% 92%, rgba(244,63,94,0.028), transparent 72%),
+                    radial-gradient(1400px 860px at 18% 10%, rgba(248,232,171,var(--bgA)), transparent 66%),
+                    radial-gradient(1300px 860px at 78% 22%, rgba(241,220,84,var(--bgB)), transparent 68%),
+                    radial-gradient(1300px 960px at 55% 92%, rgba(244,63,94,var(--bgC)), transparent 72%),
                     var(--paper);
         }
 
@@ -98,7 +111,7 @@
             border-bottom:0;
         }
         .navlink:hover{
-            color: rgb(237, 209, 94);
+            color:rgb(237,209,94);
             box-shadow:0 10px 22px rgba(0,0,0,0.08);
         }
         .navlink:active{
@@ -189,6 +202,7 @@
             caret-color:rgb(41,37,36);
         }
 
+        /* HAMBURGER FEEDBACK: keep is-tap for immediate click feedback, and is-open for persistent open state */
         .menu-btn{
             -webkit-tap-highlight-color:rgba(0,0,0,0);
             touch-action:manipulation;
@@ -321,6 +335,7 @@
             line-height:1.65rem;
         }
 
+        /* MOBILE NAV LINK TAP FEEDBACK */
         .mnav-tap{
             background:rgba(120,113,108,0.14);
             box-shadow:0 10px 22px rgba(0,0,0,0.08);
@@ -332,7 +347,12 @@
 <body class="text-stone-800">
 <div id="top"></div>
 
-<header id="siteHeader" class="sticky top-0 z-50 border-b border-stone-200/80 backdrop-blur-md" style="background:rgba(246,235,221,0.76);">
+<!-- HEADER TRANSPARENCY:
+     Change --headerAlpha in :root (0.0 to 1.0).
+     Change header colour by editing rgb(...) below or --paperHeader. -->
+<header id="siteHeader"
+        class="sticky top-0 z-50 border-b border-stone-200/80 backdrop-blur-md"
+        style="background:rgba(246,235,221,var(--headerAlpha));">
     <div class="mx-auto max-w-6xl px-5 sm:px-6">
         <div class="flex items-center justify-between py-4">
             <a href="#overview" class="flex items-center gap-3">
@@ -831,7 +851,7 @@
 
         function setOpen(open) {
             panel.dataset.open = open ? "true" : "false";
-            btn.classList.toggle("is-open", open);
+            btn.classList.toggle("is-open", open); /* persistent visual state */
             btn.setAttribute("aria-expanded", open ? "true" : "false");
             btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
             if (icoOpen && icoClose) {
@@ -842,20 +862,23 @@
         }
 
         function tapFlash() {
-            btn.classList.add("is-tap");
+            btn.classList.add("is-tap"); /* instant click feedback even if scroll happens immediately */
             window.clearTimeout(btn.__tapT);
             btn.__tapT = window.setTimeout(() => btn.classList.remove("is-tap"), 180);
         }
 
+        /* feedback on press */
         btn.addEventListener("pointerdown", tapFlash, { passive: true });
         btn.addEventListener("touchstart", tapFlash, { passive: true });
 
+        /* feedback on click + toggle */
         btn.addEventListener("click", () => {
             tapFlash();
             const open = panel.dataset.open === "true";
             setOpen(!open);
         });
 
+        /* feedback on mobile link click before smooth-scroll */
         panel.querySelectorAll("a[href^='#']").forEach(a => {
             a.addEventListener("click", (e) => {
                 const href = a.getAttribute("href") || "";

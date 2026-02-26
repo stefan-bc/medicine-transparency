@@ -32,22 +32,10 @@
         }
     </script>
 
-    <script>
-        /* Apply saved dark mode before first paint to avoid flash */
-        (function(){
-            var saved = localStorage.getItem('colorScheme');
-            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if(saved === 'dark' || (!saved && prefersDark)){
-                document.documentElement.classList.add('dark');
-            }
-        })();
-    </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         /** @type {{ config?: any }} */ window.tailwind = window.tailwind || {};
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -353,123 +341,6 @@
             box-shadow:0 10px 22px rgba(0,0,0,0.08);
             transform:translateY(0px) scale(0.99);
         }
-
-        /* ═══════════════════════════════════
-           DARK MODE
-        ═══════════════════════════════════ */
-        html.dark {
-            --paper: #1c1917;
-            --paperHeader: #1c1917;
-        }
-
-        html.dark body {
-            background:
-                radial-gradient(1400px 860px at 18% 10%, rgba(248,232,171,0.030), transparent 66%),
-                radial-gradient(1300px 860px at 78% 22%, rgba(241,220,84,0.020), transparent 68%),
-                radial-gradient(1300px 960px at 55% 92%, rgba(244,63,94,0.010), transparent 72%),
-                #1c1917;
-            color: #d6d3d1;
-            color-scheme: dark;
-        }
-
-        html.dark #siteHeader {
-            background: rgba(22,19,18,0.92) !important;
-            border-color: rgba(255,255,255,0.08) !important;
-        }
-
-        /* Text */
-        html.dark .text-stone-800,
-        html.dark .text-stone-700 { color: #d6d3d1; }
-        html.dark .text-stone-600 { color: #a8a29e; }
-        html.dark .h-main { color: #f5f5f4 !important; }
-        html.dark .cons-item .t { color: #e7e5e4 !important; }
-        html.dark .cons-item .d { color: #a8a29e !important; }
-        html.dark .sol-list .row { color: #a8a29e !important; }
-        html.dark .subhead { color: #d6d3d1 !important; }
-        html.dark .expand-btn { color: #e7e5e4 !important; }
-        html.dark .expand-btn:hover { color: #f5f5f4 !important; }
-        html.dark .expand-body { color: #a8a29e !important; }
-        html.dark .expand { border-color: rgba(255,255,255,0.1) !important; }
-
-        /* Navlinks */
-        html.dark .navlink { color: #a8a29e; }
-        html.dark .navlink:hover { color: rgb(237,209,94); }
-        html.dark .mnav-link { color: #d6d3d1 !important; }
-
-        /* Panels & borders */
-        html.dark .panel {
-            border-color: rgba(255,255,255,0.10) !important;
-            background: rgba(255,255,255,0.025) !important;
-        }
-        html.dark .subbox-mustard {
-            border-color: rgba(245,158,11,0.22) !important;
-            background: rgba(245,158,11,0.07) !important;
-        }
-
-        /* Mobile nav panel */
-        html.dark #mobilePanel > div > div {
-            background: #211f1e !important;
-            border-color: rgba(255,255,255,0.10) !important;
-        }
-
-        /* Menu / icon buttons */
-        html.dark .menu-btn {
-            background: rgba(40,35,32,0.92) !important;
-            border-color: rgba(255,255,255,0.18) !important;
-            color: #d6d3d1 !important;
-        }
-        html.dark .menu-btn:hover {
-            background: rgba(55,48,44,0.96) !important;
-            border-color: rgba(255,255,255,0.30) !important;
-        }
-        html.dark .menu-btn.is-open {
-            background: rgba(60,52,47,0.98) !important;
-        }
-
-        /* Tooltip bubble */
-        html.dark .tip .tip-bubble {
-            background: rgba(33,31,30,0.98) !important;
-            border-color: rgba(255,255,255,0.12) !important;
-            color: #d6d3d1 !important;
-        }
-
-        /* Footer */
-        html.dark footer {
-            background: #161412 !important;
-            border-color: rgba(255,255,255,0.08) !important;
-        }
-
-        /* Back-to-top button */
-        html.dark #backToTop {
-            background: #211f1e !important;
-            border-color: rgba(255,255,255,0.15) !important;
-            color: #d6d3d1 !important;
-        }
-
-        /* Form inputs */
-        html.dark input,
-        html.dark textarea {
-            background: rgba(255,255,255,0.05) !important;
-            border-color: rgba(255,255,255,0.15) !important;
-            color: #e7e5e4 !important;
-        }
-        html.dark input::placeholder,
-        html.dark textarea::placeholder { color: rgba(168,162,158,0.7); }
-
-        /* bg-paper utility used in badge, mobile nav, back-to-top, etc. */
-        html.dark .bg-paper { background-color: #211f1e !important; }
-
-        /* Contact status */
-        html.dark #contactStatus {
-            background: rgba(255,255,255,0.04) !important;
-            color: #d6d3d1 !important;
-        }
-
-        /* Dark mode toggle icons */
-        #dmIconSun  { display:none; }
-        #dmIconMoon { display:block; }
-        html.dark #dmIconSun  { display:block; }
-        html.dark #dmIconMoon { display:none; }
     </style>
 </head>
 
@@ -506,7 +377,7 @@
                 <a href="#overview" class="navlink text-stone-700 hover:text-stone-800 btn-ease">Overview</a>
                 <a href="#problem" class="navlink text-stone-700 hover:text-stone-800 btn-ease">Why?</a>
                 <a href="#solution" class="navlink text-stone-700 hover:text-stone-800 btn-ease">Solution</a>
-                <a href="#commission" class="navlink text-stone-700 hover:text-stone-800 btn-ease">Response</a>
+                <a href="#commission" class="navlink text-stone-700 hover:text-stone-800 btn-ease">EC Response</a>
                 <a href="#evidence" class="navlink text-stone-700 hover:text-stone-800 btn-ease">Evidence</a>
                 <a href="#faq" class="navlink text-stone-700 hover:text-stone-800 btn-ease">FAQ</a>
                 <a href="#contact" class="navlink text-stone-700 hover:text-stone-800 btn-ease">Contact</a>
@@ -521,20 +392,8 @@
                         <polyline points="7 10 12 15 17 10"></polyline>
                         <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
-                    <span>Brief</span>
+                    <span>Download PDF</span>
                 </a>
-
-                <button id="darkModeBtn" type="button"
-                        aria-label="Switch to dark mode"
-                        class="menu-btn inline-flex items-center justify-center rounded-2xl p-2.5 text-stone-700 shadow-sm btn-ease">
-                    <svg id="dmIconMoon" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="dmIconSun" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="4"></circle>
-                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-                    </svg>
-                </button>
 
                 <button id="mobileBtn" type="button"
                         class="menu-btn inline-flex lg:hidden items-center justify-center rounded-2xl p-2.5 text-stone-700 shadow-sm btn-ease"
@@ -571,7 +430,7 @@
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
-                        <span>Brief</span>
+                        <span>Download PDF</span>
                     </a>
                 </div>
             </div>
@@ -585,19 +444,20 @@
         <div class="mx-auto max-w-4xl text-center">
             <div class="mx-auto inline-flex items-center gap-2 rounded-full border border-stone-200 bg-paper px-4 py-2 text-sm font-semibold text-stone-700 shadow-sm">
                 <span class="inline-flex h-2 w-2 rounded-full bg-amber-500"></span>
-                <span>EU Law Amendment Proposal</span>
+                <span>EU advocacy initiative</span>
             </div>
 
             <br><p> </p>
 
             <h1 class="hero-title mt-5 font-extrabold tracking-tight text-stone-800">
-                Know What's in Your Medicine.
+                What Animal is In Your Medicine?<br class="hidden sm:block" />
+                 <span class="text-brand-700"></span>
             </h1>
 
             <br>
 
             <p class="mx-auto mt-4 max-w-3xl text-xl sm:text-2xl leading-relaxed text-stone-700" style="font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0;">
-                A proposal to mandate species-origin disclosure for animal-derived excipients in EU medicines.
+                Your capsule may be derived from a pig or a cow. You are not legally entitled to know.
             </p>
 
             <br><br><br>
@@ -642,19 +502,18 @@
         <div class="mx-auto max-w-4xl">
             <div class="panel p-6 sm:p-8">
                 <div class="max-w-3xl why-lead">
-                    <h2 class="h-main">What is the problem?</h2>
+                    <h2 class="h-main">Why is non-disclosure a problem?</h2>
 
                     <p class="mt-4 text-base leading-relaxed text-stone-700 sm:text-lg">
-                        Tens of millions of EU citizens cannot verify whether their prescribed medicines align with their ethical, religious, or personal values. Not only patients — even medical professionals are unable to confirm species origin.
+                        Animal ingredients in
+                        <span class="tip" data-open="false">
+                            <button type="button" class="tip-trigger underline decoration-dotted underline-offset-4">excipients</button>
+                            <span class="tip-bubble">Inactive ingredients such as capsule shells, fillers, and coatings.</span>
+                        </span>
+                        can create a serious ethical concern because their origin is often not disclosed by manufacturers.
                     </p>
 
-                    <p class="mt-3 text-base leading-relaxed text-stone-700 sm:text-lg">
-                        Since manufacturers are not required to provide origin information even in professional product documentation (e.g. SmPCs), pharmacists and clinicians cannot reliably advise patients or identify suitable alternatives.
-                    </p>
-
-                    <h3 class="mt-8 text-xl font-bold text-stone-800">Who is affected?</h3>
-
-                    <div class="mt-4 cons-list">
+                    <div class="mt-6 cons-list">
                         <div class="cons-item">
                             <div class="icon-row">
                                 <span class="ico-red" aria-hidden="true">
@@ -665,8 +524,8 @@
                                     </svg>
                                 </span>
                                 <div>
-                                    <div class="t">Vegans and vegetarians</div>
-                                    <div class="d">Object to all animal-derived substances on ethical grounds.</div>
+                                    <div class="t">Prevents informed consent</div>
+                                    <div class="d">Animal species origin determines acceptability for many ethical and religious convictions, while medicines are often unavoidable.</div>
                                 </div>
                             </div>
                         </div>
@@ -681,8 +540,8 @@
                                     </svg>
                                 </span>
                                 <div>
-                                    <div class="t">Observant Muslims and Jews</div>
-                                    <div class="d">Avoid porcine-derived ingredients on religious grounds.</div>
+                                    <div class="t">Affects clinicians and pharmacists</div>
+                                    <div class="d">Medical professionals cannot reliably answer origin questions from official product information or identify suitable alternatives when origin is obscured.</div>
                                 </div>
                             </div>
                         </div>
@@ -697,53 +556,14 @@
                                     </svg>
                                 </span>
                                 <div>
-                                    <div class="t">Hindus</div>
-                                    <div class="d">Avoid bovine-derived ingredients on religious grounds.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cons-item">
-                            <div class="icon-row">
-                                <span class="ico-red" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M12 8v5"></path>
-                                        <path d="M12 16h.01"></path>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <div class="t">Patients with sensitivities</div>
-                                    <div class="d">Patients with lactose intolerance or sensitivities to specific animal proteins face distinct medical constraints.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cons-item">
-                            <div class="icon-row">
-                                <span class="ico-red" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M12 8v5"></path>
-                                        <path d="M12 16h.01"></path>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <div class="t">Medical professionals</div>
-                                    <div class="d">Cannot reliably advise patients or identify suitable alternatives when origin is not documented in professional product information.</div>
+                                    <div class="t">Creates indirect discrimination risk</div>
+                                    <div class="d">Lack of origin disclosure disproportionately affects people whose ethical or religious convictions require avoiding certain animal-derived ingredients.</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-6 subbox-mustard">
-                        <p class="text-base leading-relaxed text-stone-700">
-                            EU-level studies are lacking, but a <strong>2022 study found that 74% of commonly prescribed medicines in the UK contained animal-derived components.</strong> Given shared pharmaceutical supply chains across the EU, a comparable pattern is likely reflected in every EU Member State.
-                        </p>
-                        <p class="mt-3 text-base leading-relaxed text-stone-700">
-                            Unlike food or cosmetics, medicines are frequently non-substitutable, leaving patients with no reliable means of making an informed choice at the point of prescription or dispensing.
-                        </p>
-                    </div>
+                    <p class="mt-4 text-base leading-relaxed text-stone-700 sm:text-lg"></p>
                 </div>
             </div>
         </div>
@@ -753,61 +573,25 @@
         <div class="mx-auto max-w-4xl">
             <div class="panel p-6 sm:p-8">
                 <div class="max-w-3xl">
-                    <h2 class="h-main">Potential Solutions</h2>
+                    <h2 class="h-main">Solution</h2>
 
-                    <p class="mt-4 text-base leading-relaxed text-stone-700 sm:text-lg">
-                        Manufacturers already track excipient origin in the supply chain, so disclosure is mainly a labelling, not a formulation change — with minimal cost and no impact on medicine availability.
-                    </p>
-
-                    <div class="mt-6 cons-list">
-                        <div class="cons-item">
-                            <div class="icon-row">
-                                <span class="ico-green" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M8 12l2.5 2.5L16 9"></path>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <div class="t">1. Simple labelling</div>
-                                    <div class="d">Adding species origin to the already-existing ingredient list on packaging. Requires very little to no investment. Example: <em>Magnesium stearate (animal-derived, bovine)</em></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cons-item">
-                            <div class="icon-row">
-                                <span class="ico-green" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M8 12l2.5 2.5L16 9"></path>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <div class="t">2. Extend description in SmPC</div>
-                                    <div class="d">Adding species origin to the ingredient list in the Summary of Product Characteristics — the professional product documentation used by clinicians and pharmacists.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cons-item">
-                            <div class="icon-row">
-                                <span class="ico-green" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M8 12l2.5 2.5L16 9"></path>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <div class="t">3. Centralised EU Database</div>
-                                    <div class="d">An EU-level origin database linked to digital labelling, enabling patients and professionals to look up any medicine and see the species origin of all excipients.</div>
-                                </div>
+                    <div class="mt-4 cons-item">
+                        <div class="icon-row">
+                            <span class="ico-green" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 12l2.5 2.5L16 9"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <div class="t">The EU can mandate labelling to show clearly when animal-derived products are used in medicines.</div>
+                                <div class="d">Manufacturers already track excipient origin in the supply chain, so disclosure is mainly a labelling, not a formulation change. Disclosure reduces uncertainty for patients and healthcare professionals without changing formulations, with minimal cost and no impact on medicine availability.</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-6 subbox-mustard">
-                        <div class="subhead" style="margin-top:0;">Example labelling format:</div>
+                        <div class="subhead" style="margin-top:0;">Example labelling:</div>
                         <br>
                         <div class="sol-list">
                             <div class="row"><span class="font-semibold text-stone-800">Gelatine</span> (animal-derived, porcine/bovine/fish)</div>
@@ -830,28 +614,26 @@
                 <div class="max-w-3xl">
                     <h2 class="h-main">Response from the European Commission</h2>
 
-                    <p class=”mt-2 text-base leading-relaxed text-stone-700 sm:text-lg”>
-                        The European Commission confirms that a legislative gap exists and acknowledges that the issue affects millions of EU citizens. In a formal response dated 29 January 2026, signed by Olga Solomon, Head of Unit, Directorate-General for Health and Food Safety, the Commission stated:
+                    <p class="mt-2 text-base leading-relaxed text-stone-700 sm:text-lg">
+                        The Commission confirms the EU labelling gap on species origin for excipients in their letter.
                     </p>
 
-                    <p class=”mt-3 text-base leading-relaxed text-stone-700 sm:text-lg”>
-                        The Commission's own words confirm that current law does not mandate origin disclosure, that the ethical case is recognised, and that the proposed reforms are under active consideration.
-                    </p>
+                    <br>
 
-                    <div class=”mt-4 subbox-mustard”>
-                        <div class=”subhead” style=”margin-top:0;”>Key excerpts:</div>
+                    <div class="mt-4 subbox-mustard">
+                        <div class="subhead" style="margin-top:0;">Key excerpts:</div>
                         <br>
 
-                        <blockquote class=”mt-3 border-l-4 border-accent-600 pl-4 text-stone-700”>
-                            “Articles 54 and 59 of Directive 2001/83/EC do not necessitate the disclosure of the species origin of excipients, as the legislation is more focused on ensuring the safety, efficacy, and quality of medicinal products.”
+                        <blockquote class="mt-3 border-l-4 border-accent-600 pl-4 text-stone-700">
+                            “Articles 54 and 59 of Directive 2001/83/EC do not necessitate the disclosure of the species origin of excipients.”
                         </blockquote>
 
-                        <blockquote class=”mt-3 border-l-4 border-accent-600 pl-4 text-stone-700”>
+                        <blockquote class="mt-3 border-l-4 border-accent-600 pl-4 text-stone-700">
                             “We recognise the importance of enabling patients to make informed choices in line with their ethical, cultural, or religious beliefs.”
                         </blockquote>
 
-                        <blockquote class=”mt-3 border-l-4 border-accent-600 pl-4 text-stone-700”>
-                            “We value your suggestions for regulatory improvements, including potential amendments to Directive 2001/83/EC, or the introduction of measures such as a centralised database or standardised symbols.”
+                        <blockquote class="mt-3 border-l-4 border-accent-600 pl-4 text-stone-700">
+                            “We will consider your points in discussions and studies related to improving transparency in medicinal labelling.”
                         </blockquote>
                     </div>
 
@@ -1261,27 +1043,6 @@
         tips.forEach(tip => {
             tip.addEventListener("click", (e) => e.stopPropagation());
             tip.addEventListener("touchstart", (e) => e.stopPropagation(), { passive: true });
-        });
-    })();
-</script>
-
-<script>
-    (function(){
-        var btn  = document.getElementById('darkModeBtn');
-        var html = document.documentElement;
-        if(!btn) return;
-
-        function updateBtn(){
-            var dark = html.classList.contains('dark');
-            btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-        }
-        updateBtn();
-
-        btn.addEventListener('click', function(){
-            html.classList.toggle('dark');
-            var dark = html.classList.contains('dark');
-            localStorage.setItem('colorScheme', dark ? 'dark' : 'light');
-            updateBtn();
         });
     })();
 </script>

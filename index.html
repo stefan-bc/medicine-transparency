@@ -472,7 +472,192 @@
         #dmIconMoon { display:block; }
         html.dark #dmIconSun  { display:block; }
         html.dark #dmIconMoon { display:none; }
+
+        /* Typing effect cursor (fully invisible) */
+        .typing-cursor {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 0;
+            background-color: transparent !important;
+            vertical-align: baseline;
+            opacity: 0 !important; /* completely hidden */
+            animation: none !important; /* ensure no blink */
+            pointer-events: none;
+        }
+        
+        /* kept for compatibility but not used */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
     </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        class SequenceTypingText {
+            constructor(element, sequences = [], options = {}) {
+                this.element = element;
+                this.sequences = sequences;
+                this.typingSpeed = options.typingSpeed || 50;
+                this.deletingSpeed = options.deletingSpeed || 25;
+                this.showCursor = options.showCursor !== false;
+                this.cursorCharacter = options.cursorCharacter || "|";
+                this.initialDelay = options.initialDelay || 0;
+                this.baseText = options.baseText || "";
+                this.baseLength = this.baseText.length;
+                
+                this.displayedText = this.baseText;
+                this.sequenceIndex = 0;
+                this.commandIndex = 0;
+                this.timeout = null;
+                
+                this.init();
+            }
+            
+            init() {
+                this.element.textContent = "";
+                
+                this.textEl = document.createElement("span");
+                this.element.appendChild(this.textEl);
+                this.textEl.textContent = this.displayedText;
+                
+                if (this.showCursor) {
+                    this.cursorEl = document.createElement("span");
+                    this.cursorEl.className = this.cursorCharacter === "|" ? "typing-cursor" : "";
+                    if (this.cursorCharacter !== "|") {
+                        this.cursorEl.textContent = this.cursorCharacter;
+                    }
+                    this.element.appendChild(this.cursorEl);
+                }
+                
+                this.startAnimation();
+            }
+            
+            startAnimation() {
+                this.timeout = setTimeout(() => {
+                    this.playSequence();
+                }, this.initialDelay);
+            }
+            
+            playSequence() {
+                const sequence = this.sequences[this.sequenceIndex % this.sequences.length];
+                const commands = sequence.commands || [];
+                
+                if (this.commandIndex >= commands.length) {
+                    this.commandIndex = 0;
+                    this.sequenceIndex++;
+                    this.playSequence();
+                    return;
+                }
+                
+                const command = commands[this.commandIndex];
+                this.commandIndex++;
+                
+                if (command.type === "type") {
+                    this.typeText(command.text);
+                } else if (command.type === "deleteToLength") {
+                    this.deleteToLength(command.length);
+                } else if (command.type === "pause") {
+                    this.timeout = setTimeout(() => {
+                        this.playSequence();
+                    }, command.duration);
+                }
+            }
+            
+            typeText(text) {
+                let charIndex = 0;
+                const type = () => {
+                    if (charIndex < text.length) {
+                        const ch = text[charIndex];
+                        this.displayedText += ch;
+                        this.textEl.textContent = this.displayedText;
+                        charIndex++;
+                        // Natural rhythm: ±35% jitter; punctuation lingers slightly longer
+                        let delay = this.typingSpeed * (0.65 + Math.random() * 0.7);
+                        if (ch === '.' || ch === '!' || ch === '?') {
+                            delay = this.typingSpeed * (1.2 + Math.random() * 0.4);
+                        }
+                        this.timeout = setTimeout(type, delay);
+                    } else {
+                        this.playSequence();
+                    }
+                };
+                type();
+            }
+
+            deleteToLength(targetLength) {
+                const minLength = Math.max(targetLength, this.baseLength);
+                const deleteChar = () => {
+                    if (this.displayedText.length > minLength) {
+                        this.displayedText = this.displayedText.slice(0, -1);
+                        this.textEl.textContent = this.displayedText;
+                        // Slight variation so deletion doesn't sound mechanical
+                        this.timeout = setTimeout(deleteChar, this.deletingSpeed * (0.75 + Math.random() * 0.5));
+                    } else {
+                        this.playSequence();
+                    }
+                };
+                deleteChar();
+            }
+            
+            destroy() {
+                if (this.timeout) {
+                    clearTimeout(this.timeout);
+                }
+            }
+        }
+
+        // Initialize typing effect on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            const titleElement = document.querySelector(".hero-typed");
+            if (titleElement) {
+                const baseText = "";
+                const sequences = [
+                    {
+                        commands: [
+                            { type: "pause", duration: 600 },
+                            { type: "type", text: "pill." },
+                            { type: "pause", duration: 7500 },
+                            { type: "deleteToLength", length: 0 }
+                        ]
+                    },
+                    {
+                        commands: [
+                            { type: "pause", duration: 700 },
+                            { type: "type", text: "tablet." },
+                            { type: "pause", duration: 7500 },
+                            { type: "deleteToLength", length: 0 }
+                        ]
+                    },
+                    {
+                        commands: [
+                            { type: "pause", duration: 700 },
+                            { type: "type", text: "vaccine." },
+                            { type: "pause", duration: 7500 },
+                            { type: "deleteToLength", length: 0 }
+                        ]
+                    },
+                    {
+                        commands: [
+                            { type: "pause", duration: 700 },
+                            { type: "type", text: "cough syrup." },
+                            { type: "pause", duration: 7500 },
+                            { type: "deleteToLength", length: 0 }
+                        ]
+                    }
+                ];
+
+                new SequenceTypingText(titleElement, sequences, {
+                    baseText: baseText,
+                    typingSpeed: 500,
+                    deletingSpeed: 130,
+                    showCursor: true,
+                    initialDelay: 400
+                });
+            }
+        });
+    </script>
 </head>
 
 <body class="text-stone-800">
@@ -579,7 +764,7 @@
             <br><p> </p>
 
             <h1 class="hero-title mt-5 font-extrabold tracking-tight text-stone-800">
-                Know What's in Your Medicine.
+                Know what's in your...<br><span class="hero-typed"></span>
             </h1>
 
             <br>

@@ -616,33 +616,33 @@
                 const sequences = [
                     {
                         commands: [
-                            { type: "pause", duration: 600 },
+                            { type: "pause", duration: 400 },
                             { type: "type", text: "pill." },
-                            { type: "pause", duration: 7500 },
+                            { type: "pause", duration: 3000 },
                             { type: "deleteToLength", length: 0 }
                         ]
                     },
                     {
                         commands: [
-                            { type: "pause", duration: 700 },
+                            { type: "pause", duration: 400 },
                             { type: "type", text: "tablet." },
-                            { type: "pause", duration: 7500 },
+                            { type: "pause", duration: 3000 },
                             { type: "deleteToLength", length: 0 }
                         ]
                     },
                     {
                         commands: [
-                            { type: "pause", duration: 700 },
+                            { type: "pause", duration: 400 },
                             { type: "type", text: "vaccine." },
-                            { type: "pause", duration: 7500 },
+                            { type: "pause", duration: 3000 },
                             { type: "deleteToLength", length: 0 }
                         ]
                     },
                     {
                         commands: [
-                            { type: "pause", duration: 700 },
-                            { type: "type", text: "cough syrup." },
-                            { type: "pause", duration: 7500 },
+                            { type: "pause", duration: 400 },
+                            { type: "type", text: "medicine." },
+                            { type: "pause", duration: 3000 },
                             { type: "deleteToLength", length: 0 }
                         ]
                     }
@@ -650,10 +650,10 @@
 
                 new SequenceTypingText(titleElement, sequences, {
                     baseText: baseText,
-                    typingSpeed: 500,
-                    deletingSpeed: 130,
+                    typingSpeed: 300,
+                    deletingSpeed: 100,
                     showCursor: true,
-                    initialDelay: 400
+                    initialDelay: 300
                 });
             }
         });

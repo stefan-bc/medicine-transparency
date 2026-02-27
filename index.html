@@ -134,6 +134,60 @@
             border-radius: 20px;
         }
 
+        .panel-photo {
+            position: absolute;
+            inset: 0;
+            background: url('med-photo.png') center center / cover no-repeat;
+            opacity: 0.055;
+            pointer-events: none;
+            border-radius: 16px;
+        }
+
+        .panel-photo-2 {
+            position: absolute;
+            inset: 0;
+            background: url('eu-photo-2.png') center center / cover no-repeat;
+            opacity: 0.055;
+            pointer-events: none;
+            border-radius: 16px;
+        }
+
+        .panel-photo-3 {
+            position: absolute;
+            inset: 0;
+            background: url('eu-photo-3.png') center center / cover no-repeat;
+            opacity: 0.055;
+            pointer-events: none;
+            border-radius: 16px;
+        }
+
+        .panel-photo-5 {
+            position: absolute;
+            inset: 0;
+            background: url('eu-photo-5.png') center center / cover no-repeat;
+            opacity: 0.055;
+            pointer-events: none;
+            border-radius: 16px;
+        }
+
+        .panel-photo-6 {
+            position: absolute;
+            inset: 0;
+            background: url('eu-photo-6.png') center center / cover no-repeat;
+            opacity: 0.055;
+            pointer-events: none;
+            border-radius: 16px;
+        }
+
+        .panel-photo-7 {
+            position: absolute;
+            inset: 0;
+            background: url('eu-photo-7.png') center center / cover no-repeat;
+            opacity: 0.055;
+            pointer-events: none;
+            border-radius: 16px;
+        }
+
         .hero-title {
             font-size: clamp(2.6rem, 7.4vw, 4.1rem);
             line-height: 1.04;
@@ -365,6 +419,12 @@
         html.dark .bg-paper          { background-color: #121E32 !important; }
         html.dark #contactStatus     { color: #C8D4E8 !important; }
         html.dark .hero-photo        { opacity: 0.04; }
+        html.dark .panel-photo       { opacity: 0.04; }
+        html.dark .panel-photo-2     { opacity: 0.04; }
+        html.dark .panel-photo-3     { opacity: 0.04; }
+        html.dark .panel-photo-5     { opacity: 0.04; }
+        html.dark .panel-photo-6     { opacity: 0.04; }
+        html.dark .panel-photo-7     { opacity: 0.04; }
         html.dark .bq                { color: #94A3BE; }
         html.dark .body-lg           { color: #94A3BE; }
 
@@ -544,8 +604,9 @@
     <!-- PROBLEM -->
     <section id="problem" class="pb-10 sm:pb-12">
         <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8">
-                <div class="max-w-3xl">
+            <div class="panel p-6 sm:p-8" style="position:relative;">
+                <div class="panel-photo" aria-hidden="true"></div>
+                <div class="max-w-3xl" style="position:relative;">
                     <h2 class="h-main">How is this an issue for patients?</h2>
 
                     <p class="body-lg mt-4">
@@ -581,8 +642,9 @@
     <!-- SOLUTION -->
     <section id="solution" class="pb-10 sm:pb-12">
         <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8">
-                <div class="max-w-3xl">
+            <div class="panel p-6 sm:p-8" style="position:relative;">
+                <div class="panel-photo-3" aria-hidden="true"></div>
+                <div class="max-w-3xl" style="position:relative;">
                     <h2 class="h-main">Potential Solutions</h2>
                     <p class="body-lg mt-4">
                         Manufacturers already track excipient origin in the supply chain, so disclosure is mainly a labelling, not a formulation change — with minimal cost and no impact on medicine availability.
@@ -613,8 +675,9 @@
     <!-- COMMISSION RESPONSE -->
     <section id="commission" class="pb-10 sm:pb-12">
         <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8">
-                <div class="max-w-3xl">
+            <div class="panel p-6 sm:p-8" style="position:relative;">
+                <div class="panel-photo-2" aria-hidden="true"></div>
+                <div class="max-w-3xl" style="position:relative;">
                     <h2 class="h-main">Response from the European Commission</h2>
 
                     <p class="body-lg mt-4">
@@ -645,8 +708,9 @@
     <!-- EVIDENCE -->
     <section id="evidence" class="pb-10 sm:pb-12">
         <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8">
-                <div class="max-w-3xl">
+            <div class="panel p-6 sm:p-8" style="position:relative;">
+                <div class="panel-photo-5" aria-hidden="true"></div>
+                <div class="max-w-3xl" style="position:relative;">
                     <h2 class="h-main">Evidence and documents</h2>
                     <p class="body-lg mt-3">Detailed brief, Transparency on Animal-Derived Excipients in Human Medicines</p>
                     <div class="mt-5 flex justify-end">
@@ -663,8 +727,9 @@
     <!-- FAQ -->
     <section id="faq" class="pb-12 sm:pb-14 md:pb-16">
         <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8">
-                <div class="max-w-3xl">
+            <div class="panel p-6 sm:p-8" style="position:relative;">
+                <div class="panel-photo-6" aria-hidden="true"></div>
+                <div class="max-w-3xl" style="position:relative;">
                     <h2 class="h-main">Frequently Asked Questions</h2>
                     <div class="mt-5">
                         <div class="expand expand-item" data-open="false">
@@ -696,8 +761,9 @@
     <!-- CONTACT -->
     <section id="contact" class="pb-14 sm:pb-16 md:pb-20">
         <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8">
-                <div class="max-w-3xl">
+            <div class="panel p-6 sm:p-8" style="position:relative;">
+                <div class="panel-photo-7" aria-hidden="true"></div>
+                <div class="max-w-3xl" style="position:relative;">
                     <h2 class="h-main">Get Involved</h2>
                     <p class="body-lg mt-2">If you have questions or want to contribute — evidence, drafting, outreach, or web.</p>
                 </div>

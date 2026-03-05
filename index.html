@@ -6,7 +6,7 @@
     <title>MedicineTransparency.eu</title>
     <meta name="description" content="EU advocacy initiative for species-origin disclosure of animal-derived excipients in medicines." />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="theme-color" content="#F3F5FA" />
+    <meta name="theme-color" content="#F3F5FA" /> 
     <script defer data-domain="medicinetransparency.eu" src="https://analytics.nosite.ie/js/script.js"></script>
 
     <link rel="canonical" href="https://www.medicinetransparency.eu/" />
@@ -30,8 +30,7 @@
     <script>
         (function(){
             var s = localStorage.getItem('colorScheme');
-            var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if(s==='dark'||(!s&&d)) document.documentElement.classList.add('dark');
+            if(s==='dark') document.documentElement.classList.add('dark');
         })();
     </script>
 
@@ -818,9 +817,11 @@
         <div class="max-w-2xl">
             <div class="text-sm">
                 <a class="underline underline-offset-4 ease" href="mailto:info@medicinetransparency.eu" style="color:var(--text-b);">info@medicinetransparency.eu</a>
+                <span style="color:var(--text-m); margin:0 6px;">·</span>
+                <a class="underline underline-offset-4 ease" href="privacy.html" style="color:var(--text-b);">Privacy</a>
             </div>
             <div class="mt-2 text-sm" style="color:var(--text-m);">This is an independent citizen-led initiative. We are not affiliated
-with any EU institution. <br>We do not encourage patients to avoid their prescribed medications. 
+with any EU institution. <br>We do not encourage patients to avoid their prescribed medications.
 
 <br>You may share and quote with attribution.</div>
         </div>
@@ -859,6 +860,9 @@ with any EU institution. <br>We do not encourage patients to avoid their prescri
     btn.addEventListener("pointerdown",tap,{passive:true});
     btn.addEventListener("touchstart",tap,{passive:true});
     btn.addEventListener("click",()=>{tap();setOpen(panel.dataset.open!=="true");});
+    document.addEventListener("click",e=>{
+        if(panel.dataset.open==="true"&&!btn.contains(e.target)&&!panel.contains(e.target))setOpen(false);
+    });
     panel.querySelectorAll("a[href^='#']").forEach(a=>{
         a.addEventListener("click",e=>{
             const id=(a.getAttribute("href")||"").slice(1),target=id?document.getElementById(id):null;

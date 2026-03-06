@@ -6,7 +6,7 @@
     <title>MedicineTransparency.eu</title>
     <meta name="description" content="EU advocacy initiative for species-origin disclosure of animal-derived excipients in medicines." />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="theme-color" content="#F3F5FA" /> 
+    <meta name="theme-color" content="#F5F5F7" />
     <script defer data-domain="medicinetransparency.eu" src="https://analytics.nosite.ie/js/script.js"></script>
 
     <link rel="canonical" href="https://www.medicinetransparency.eu/" />
@@ -44,7 +44,7 @@
                     colors: {
                         brand:  { DEFAULT: '#1A56A0', dark: '#134590' },
                         gold:   { DEFAULT: '#C9A83C', dark: '#B8962E' },
-                        paper:  '#F3F5FA'
+                        paper:  '#F5F5F7'
                     }
                 }
             }
@@ -52,395 +52,415 @@
     </script>
 
     <style>
-        /* ─── PALETTE ─────────────────────────────── */
+        /* ---- SYSTEM FONT STACK ---- */
         :root {
-            --paper:         #F3F5FA;
-            --paper-hdr:     #EDF0F8;
+            --sf: system-ui, -apple-system, BlinkMacSystemFont,
+                  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --paper:         #F5F5F7;
+            --paper-hdr:     #F5F5F7;
             --brand:         #1A56A0;
             --brand-dk:      #134590;
+            --brand-light:   #2563EB;
             --gold:          #f7cf4c00;
-            --text-h:        #0D1B2A;
-            --text-b:        #374151;
-            --text-m:        #6B7897;
-            --border:        rgba(26,86,160,0.14);
-            --border-panel:  rgba(26,86,160,0.12);
-            --nav-h:         96px;
-            --hdr-alpha:     0.84;
+            --text-h:        #1D1D1F;
+            --text-b:        #424245;
+            --text-m:        #86868B;
+            --border:        rgba(0,0,0,0.08);
+            --border-panel:  rgba(0,0,0,0.06);
+            --nav-h:         64px;
+            --hdr-alpha:     0.82;
+            --section-gap:   clamp(48px, 6vw, 80px);
+            --radius:        20px;
+            --radius-sm:     14px;
         }
 
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            font-family: var(--sf);
+        }
+
         section[id], #overview { scroll-margin-top: var(--nav-h); }
 
         body {
-            background:
-                radial-gradient(ellipse 1300px 700px at 12% 0%,  rgba(26,86,160,0.06)  0%, transparent 60%),
-                radial-gradient(ellipse 900px  500px at 88% 12%, rgba(201,168,60,0.04) 0%, transparent 55%),
-                var(--paper);
+            background: var(--paper);
             color: var(--text-b);
             overflow-x: hidden;
+            font-size: 17px;
+            line-height: 1.47;
+            letter-spacing: -0.022em;
         }
 
-        /* ─── TRANSITIONS ─────────────────────────── */
+        /* ---- TRANSITIONS ---- */
         .ease {
-            transition: background-color 180ms ease, border-color 180ms ease,
-                        color 180ms ease, box-shadow 180ms ease,
-                        opacity 180ms ease, transform 180ms ease;
+            transition: all 320ms cubic-bezier(0.25, 0.1, 0.25, 1);
         }
         .ease:not(:hover) {
-            transition: background-color 900ms ease, border-color 900ms ease,
-                        color 900ms ease, box-shadow 900ms ease,
-                        opacity 900ms ease, transform 900ms ease;
+            transition: all 520ms cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
-        /* ─── HEADER ──────────────────────────────── */
+        /* ---- HEADER ---- */
         #siteHeader {
-            background: rgba(237,240,248,var(--hdr-alpha));
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(245,245,247,var(--hdr-alpha));
+            border-bottom: 0.5px solid rgba(0,0,0,0.09);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
         }
 
-        /* ─── NAV LINKS ───────────────────────────── */
+        /* ---- NAV LINKS ---- */
         .navlink {
             display: inline-block;
-            padding: 8px 11px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 980px;
+            font-size: 0.8125rem;
+            font-weight: 400;
             color: var(--text-b);
-            letter-spacing: 0.01em;
+            letter-spacing: 0;
         }
-        .navlink:hover  { color: var(--brand); background: rgba(26,86,160,0.08); }
-        .navlink:active { background: rgba(26,86,160,0.15); transform: scale(0.98); }
-        .navlink:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(26,86,160,0.3); }
+        .navlink:hover  { color: var(--text-h); background: rgba(0,0,0,0.04); }
+        .navlink:active { transform: scale(0.97); }
+        .navlink:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(26,86,160,0.2); border-radius: 980px; }
 
-        /* ─── MOBILE PANEL ────────────────────────── */
-        .mobile-panel { max-height: 0; overflow: hidden; transition: max-height 220ms ease; }
+        /* ---- MOBILE PANEL ---- */
+        .mobile-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 340ms cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
         .mobile-panel[data-open="true"] { max-height: 540px; }
 
-        /* ─── HERO ────────────────────────────────── */
+        /* ---- HERO ---- */
         .hero-wrap {
             position: relative;
-            padding: 80px 0 88px;
+            padding: 88px 0 96px;
         }
-        @media (min-width: 640px)  { .hero-wrap { padding: 96px 0 104px; } }
-        @media (min-width: 1024px) { .hero-wrap { padding: 112px 0 120px; } }
+        @media (min-width: 640px)  { .hero-wrap { padding: 120px 0 128px; } }
+        @media (min-width: 1024px) { .hero-wrap { padding: 140px 0 148px; } }
 
+        .section-bg {
+            position: relative;
+        }
+
+        .bg-photo,
         .hero-photo {
             position: absolute;
-            inset: 0;
-            background: url('eu-photo.png') center center / cover no-repeat;
-            opacity: 0.135;
+            top: 0; bottom: 0;
+            left: 50%;
+            width: 100vw;
+            transform: translateX(-50%);
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.17;
             pointer-events: none;
-            border-radius: 20px;
         }
 
-        .panel-photo {
-            position: absolute;
-            inset: 0;
-            background: url('med-photo.png') center center / cover no-repeat;
-            opacity: 0.095;
-            pointer-events: none;
-            border-radius: 16px;
-        }
-
-        .panel-photo-2 {
-            position: absolute;
-            inset: 0;
-            background: url('eu-photo-2.png') center center / cover no-repeat;
-            opacity: 0.095;
-            pointer-events: none;
-            border-radius: 16px;
-        }
-
-        .panel-photo-3 {
-            position: absolute;
-            inset: 0;
-            background: url('eu-photo-3.png') center center / cover no-repeat;
-            opacity: 0.095;
-            pointer-events: none;
-            border-radius: 16px;
-        }
-
-        .panel-photo-5 {
-            position: absolute;
-            inset: 0;
-            background: url('eu-photo-5.png') center center / cover no-repeat;
-            opacity: 0.095;
-            pointer-events: none;
-            border-radius: 16px;
-        }
-
-        .panel-photo-6 {
-            position: absolute;
-            inset: 0;
-            background: url('eu-photo-6.png') center center / cover no-repeat;
-            opacity: 0.095;
-            pointer-events: none;
-            border-radius: 16px;
-        }
-
-        .panel-photo-7 {
-            position: absolute;
-            inset: 0;
-            background: url('eu-photo-7.png') center center / cover no-repeat;
-            opacity: 0.095;
-            pointer-events: none;
-            border-radius: 16px;
+        .hero-photo {
+            background-image: url('eu-photo.png');
+            opacity: 0.19;
         }
 
         .hero-title {
-            font-size: clamp(2.6rem, 7.4vw, 4.1rem);
-            line-height: 1.04;
-            font-weight: 900;
-            letter-spacing: -0.03em;
+            font-size: clamp(2.8rem, 8vw, 4.8rem);
+            line-height: 1.0;
+            font-weight: 700;
+            letter-spacing: -0.04em;
             color: var(--text-h);
         }
 
-        /* ─── BADGE ───────────────────────────────── */
+        .hero-sub {
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            line-height: 1.5;
+            color: var(--text-b);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ---- BADGE ---- */
         .badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            border-radius: 999px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.72);
-            padding: 6px 16px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
+            gap: 6px;
+            border-radius: 980px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.8);
+            padding: 5px 14px 5px 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
             color: var(--text-m);
         }
         .badge-dot {
-            width: 7px; height: 7px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: var(--brand);
         }
 
-        /* ─── PANELS ──────────────────────────────── */
+        /* ---- PANELS ---- */
         .panel {
-            background: rgba(255,255,255,0.65);
-            border: 1px solid var(--border-panel);
-            border-radius: 16px;
-            backdrop-filter: blur(4px);
+            background: rgba(255,255,255,0.94);
+            border: 0.5px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
         }
 
-        /* ─── SECTION HEADINGS ────────────────────── */
+        /* ---- SECTION HEADINGS ---- */
         .h-main {
-            font-size: 1.75rem;
-            line-height: 2.1rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
+            font-size: clamp(1.625rem, 3.5vw, 2.25rem);
+            line-height: 1.12;
+            font-weight: 700;
+            letter-spacing: -0.032em;
             color: var(--text-h);
         }
-        @media (min-width: 640px) { .h-main { font-size: 2.1rem; line-height: 2.5rem; } }
 
-        /* ─── BODY TEXT HELPERS ───────────────────── */
-        .body-lg { font-size: 1.05rem; line-height: 1.78rem; color: var(--text-b); }
-        @media (min-width: 640px) { .body-lg { font-size: 1.09rem; } }
+        /* ---- BODY TEXT ---- */
+        .body-lg {
+            font-size: 1.0625rem;
+            line-height: 1.65;
+            color: var(--text-b);
+            letter-spacing: -0.01em;
+        }
+        @media (min-width: 640px) { .body-lg { font-size: 1.0625rem; } }
 
-        /* ─── ICON ROWS ───────────────────────────── */
-        .icon-row { display: flex; gap: 10px; align-items: flex-start; }
+        /* ---- ICON ROWS ---- */
+        .icon-row { display: flex; gap: 12px; align-items: flex-start; }
         .ico-alert { color: #B91C1C; }
-        .ico-check  { color: #15803D; }
-        .cons-list  { margin-top: 12px; display: grid; gap: 14px; }
-        .cons-item .t { font-weight: 700; font-size: 1.02rem; line-height: 1.4rem; color: var(--text-h); }
-        .cons-item .d { margin-top: 3px; font-size: 1.02rem; line-height: 1.68rem; color: var(--text-b); }
+        .ico-check { color: #34C759; }
+        .cons-list { margin-top: 16px; display: grid; gap: 16px; }
+        .cons-item .t { font-weight: 600; font-size: 1rem; line-height: 1.35; color: var(--text-h); letter-spacing: -0.01em; }
+        .cons-item .d { margin-top: 4px; font-size: 0.9375rem; line-height: 1.55; color: var(--text-b); }
 
-        /* ─── SOL LIST ────────────────────────────── */
-        .sol-list { margin-top: 10px; display: grid; gap: 7px; }
-        .sol-list .row { font-size: 0.98rem; line-height: 1.55rem; color: var(--text-b); }
+        /* ---- SOL LIST ---- */
+        .sol-list { margin-top: 12px; display: grid; gap: 8px; }
+        .sol-list .row { font-size: 0.9375rem; line-height: 1.55; color: var(--text-b); }
 
-        /* ─── INFO BOXES ──────────────────────────── */
+        /* ---- INFO BOXES ---- */
         .infobox {
-            border-radius: 12px;
-            padding: 16px 18px;
+            border-radius: var(--radius-sm);
+            padding: 20px 22px;
         }
         .infobox-blue {
-            border: 1px solid rgba(26,86,160,0.15);
-            background: rgba(26,86,160,0.04);
+            border: 0.5px solid rgba(26,86,160,0.12);
+            background: rgba(26,86,160,0.03);
         }
         .infobox-gold {
-            border: 1px solid rgba(201,168,60,0.22);
-            background: rgba(201,168,60,0.05);
+            border: 0.5px solid rgba(201,168,60,0.18);
+            background: rgba(201,168,60,0.035);
         }
 
-        /* ─── BLOCKQUOTES ─────────────────────────── */
+        /* ---- BLOCKQUOTES ---- */
         .bq {
             margin-top: 14px;
-            padding-left: 16px;
-            border-left: 3px solid var(--gold);
+            padding-left: 18px;
+            border-left: 2px solid rgba(201,168,60,0.4);
             color: var(--text-b);
-            font-size: 1rem;
-            line-height: 1.7rem;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            font-style: italic;
         }
 
-        /* ─── SUBHEAD ─────────────────────────────── */
+        /* ---- SUBHEAD ---- */
         .subhead {
             font-weight: 600;
-            font-size: 0.92rem;
-            letter-spacing: 0.04em;
+            font-size: 0.6875rem;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
             color: var(--text-m);
         }
 
-        /* ─── BUTTONS ─────────────────────────────── */
+        /* ---- BUTTONS ---- */
         .btn-primary {
             display: inline-flex; align-items: center; justify-content: center;
-            gap: 8px; border-radius: 10px;
+            gap: 8px; border-radius: 4px;
+            border: 1px solid transparent;
             background: var(--brand);
             color: #fff;
-            font-weight: 600; font-size: 0.95rem;
-            padding: 12px 22px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            font-weight: 400; font-size: 0.8125rem;
+            padding: 14px 32px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
-        .btn-primary:hover  { background: var(--brand-dk); box-shadow: 0 4px 14px rgba(26,86,160,0.28); }
+        .btn-primary:hover  { background: var(--brand-dk); }
         .btn-primary:active { transform: scale(0.98); }
-        .btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(26,86,160,0.35); }
+        .btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(26,86,160,0.25); }
 
         .btn-ghost {
             display: inline-flex; align-items: center; justify-content: center;
-            gap: 8px; border-radius: 10px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.7);
+            gap: 8px; border-radius: 4px;
+            border: 1px solid rgba(0,0,0,0.18);
+            background: transparent;
             color: var(--text-h);
-            font-weight: 600; font-size: 0.95rem;
-            padding: 11px 22px;
+            font-weight: 400; font-size: 0.8125rem;
+            padding: 14px 32px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
-        .btn-ghost:hover  { border-color: rgba(26,86,160,0.35); background: rgba(26,86,160,0.05); }
+        .btn-ghost:hover  { border-color: var(--text-h); background: transparent; }
         .btn-ghost:active { transform: scale(0.98); }
 
         .btn-gold {
             display: inline-flex; align-items: center; justify-content: center;
-            gap: 8px; border-radius: 10px;
-            background: var(--gold);
-            color: var(--text-h);
-            font-weight: 700; font-size: 0.88rem;
-            padding: 10px 18px;
+            gap: 6px; border-radius: 4px;
+            background: var(--brand);
+            color: #fff;
+            font-weight: 400; font-size: 0.75rem;
+            padding: 8px 18px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
-        .btn-gold:hover  { background: var(--brand-dk); color: #fff; }
-        .btn-gold:active { transform: scale(0.98); }
+        .btn-gold:hover  { background: var(--brand-dk); }
+        .btn-gold:active { transform: scale(0.97); }
 
-        /* ─── DARK MODE BTN ──────────────────────── */
+        /* ---- DARK MODE BTN ---- */
         #darkModeBtn {
             background: transparent !important;
             border-color: transparent !important;
             box-shadow: none !important;
         }
         #darkModeBtn:hover {
-            background: rgba(26,86,160,0.08) !important;
-            border-color: rgba(26,86,160,0.2) !important;
+            background: rgba(0,0,0,0.05) !important;
         }
         html.dark #darkModeBtn        { background: transparent !important; border-color: transparent !important; }
-        html.dark #darkModeBtn:hover  { background: rgba(26,86,160,0.18) !important; border-color: rgba(148,163,190,0.2) !important; }
+        html.dark #darkModeBtn:hover  { background: rgba(255,255,255,0.08) !important; }
 
-        /* ─── MENU BTN ────────────────────────────── */
+        /* ---- MENU BTN ---- */
         .menu-btn {
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
             user-select: none;
             cursor: pointer;
             outline: none;
-            background: rgba(255,255,255,0.72);
-            border: 1px solid var(--border);
-            border-radius: 10px;
+            background: rgba(0,0,0,0.03);
+            border: 0.5px solid rgba(0,0,0,0.08);
+            border-radius: 980px;
             color: var(--text-b);
         }
-        .menu-btn:hover   { background: rgba(26,86,160,0.08); border-color: rgba(26,86,160,0.4); box-shadow: 0 4px 14px rgba(0,0,0,0.07); transform: translateY(-1px); }
-        .menu-btn:active  { transform: scale(0.97); }
-        .menu-btn.is-open { background: rgba(26,86,160,0.10); border-color: rgba(26,86,160,0.4); }
-        .menu-btn.is-tap  { transform: scale(0.975); }
-        .menu-btn:focus-visible { box-shadow: 0 0 0 3px rgba(26,86,160,0.3); }
+        .menu-btn:hover   { background: rgba(0,0,0,0.06); }
+        .menu-btn:active  { transform: scale(0.95); }
+        .menu-btn.is-open { background: rgba(0,0,0,0.08); }
+        .menu-btn.is-tap  { transform: scale(0.95); }
+        .menu-btn:focus-visible { box-shadow: 0 0 0 4px rgba(26,86,160,0.2); }
 
-        /* ─── ACCORDION ───────────────────────────── */
-        .expand        { border-top: 1px solid var(--border); }
+        /* ---- ACCORDION ---- */
+        .expand        { border-top: 0.5px solid rgba(0,0,0,0.08); }
         .expand:first-child { border-top: 0; }
-        .expand-btn    { width: 100%; display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; padding: 10px 0; text-align: left; font-weight: 700; color: var(--text-h); transition: color 180ms ease; }
+        .expand-btn    {
+            width: 100%; display: flex; align-items: flex-start;
+            justify-content: space-between; gap: 16px;
+            padding: 16px 0; text-align: left;
+            font-weight: 600; font-size: 1.0625rem;
+            letter-spacing: -0.01em;
+            color: var(--text-h);
+            transition: color 320ms cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
         .expand-btn:hover { color: var(--brand); }
-        .expand-icon   { flex: 0 0 auto; margin-top: 2px; transition: transform 200ms ease; color: var(--text-m); }
-        .expand-panel  { overflow: hidden; max-height: 0; opacity: 0; transform: translateY(-2px); transition: max-height 260ms ease, opacity 200ms ease, transform 200ms ease; }
+        .expand-icon   { flex: 0 0 auto; margin-top: 4px; transition: transform 320ms cubic-bezier(0.25, 0.1, 0.25, 1); color: var(--text-m); }
+        .expand-panel  {
+            overflow: hidden; max-height: 0; opacity: 0;
+            transform: translateY(-4px);
+            transition: max-height 380ms cubic-bezier(0.25, 0.1, 0.25, 1),
+                        opacity 280ms cubic-bezier(0.25, 0.1, 0.25, 1),
+                        transform 280ms cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
         .expand-item[data-open="true"] .expand-panel { opacity: 1; transform: translateY(0); }
         .expand-item[data-open="true"] .expand-icon  { transform: rotate(180deg); }
-        .expand-body   { padding: 0 0 10px; color: var(--text-b); font-size: 1.02rem; line-height: 1.65rem; }
-
-        /* ─── MOBILE NAV TAP ──────────────────────── */
-        .mnav-tap { background: rgba(26,86,160,0.10); transform: scale(0.99); }
-
-        /* ─── FORM ────────────────────────────────── */
-        .field {
-            width: 100%; border-radius: 10px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.75);
-            padding: 12px 16px;
-            color: var(--text-h);
-            font-size: 0.95rem;
-            transition: border-color 180ms ease, box-shadow 180ms ease;
+        .expand-body   {
+            padding: 0 0 16px;
+            color: var(--text-b);
+            font-size: 0.9375rem;
+            line-height: 1.6;
         }
-        .field:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(26,86,160,0.15); }
+
+        /* ---- MOBILE NAV TAP ---- */
+        .mnav-tap { background: rgba(0,0,0,0.06); transform: scale(0.99); }
+
+        /* ---- FORM ---- */
+        .field {
+            width: 100%; border-radius: var(--radius-sm);
+            border: 0.5px solid rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.9);
+            padding: 14px 18px;
+            color: var(--text-h);
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
+            transition: border-color 320ms ease, box-shadow 320ms ease;
+        }
+        .field:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 4px rgba(26,86,160,0.1); }
         .field::placeholder { color: var(--text-m); }
 
-        /* ─── SR-ONLY ─────────────────────────────── */
+        /* ---- SR-ONLY ---- */
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-        /* ─── TYPING CURSOR ───────────────────────── */
+        /* ---- TYPING CURSOR ---- */
         .typing-cursor { display: inline-block; width: 0; height: 0; background-color: transparent !important; opacity: 0 !important; animation: none !important; pointer-events: none; }
 
-        /* ══════════════════════════════════════════
-           DARK MODE
-        ══════════════════════════════════════════ */
+        /* ---- SCROLL REVEAL ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        /* ---- DIVIDER ---- */
+        .section-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--brand);
+            opacity: 0.2;
+            border-radius: 1px;
+        }
+
+        /* ==== DARK MODE ==== */
         html.dark {
-            --paper:        #0C1425;
-            --paper-hdr:    #0C1425;
-            --text-h:       #E8EEF8;
-            --text-b:       #94A3BE;
-            --text-m:       #5A6E8C;
-            --border:       rgba(148,163,190,0.12);
-            --border-panel: rgba(148,163,190,0.10);
+            --paper:        #000000;
+            --paper-hdr:    #000000;
+            --text-h:       #F5F5F7;
+            --text-b:       #A1A1A6;
+            --text-m:       #6E6E73;
+            --border:       rgba(255,255,255,0.08);
+            --border-panel: rgba(255,255,255,0.06);
         }
         html.dark body {
-            background:
-                radial-gradient(ellipse 1300px 700px at 12% 0%,  rgba(26,86,160,0.09)  0%, transparent 60%),
-                radial-gradient(ellipse 900px  500px at 88% 12%, rgba(201,168,60,0.04) 0%, transparent 55%),
-                #0C1425;
+            background: #000000;
             color-scheme: dark;
         }
-        html.dark #siteHeader        { background: rgba(12,20,37,0.92) !important; }
-        html.dark .panel             { background: rgba(255,255,255,0.04) !important; border-color: rgba(148,163,190,0.10) !important; }
-        html.dark .badge             { background: rgba(255,255,255,0.06) !important; }
-        html.dark .infobox-blue      { background: rgba(26,86,160,0.10) !important; border-color: rgba(26,86,160,0.22) !important; }
-        html.dark .infobox-gold      { background: rgba(201,168,60,0.08) !important; border-color: rgba(201,168,60,0.22) !important; }
-        html.dark .btn-ghost         { background: rgba(255,255,255,0.05) !important; border-color: rgba(148,163,190,0.18) !important; color: var(--text-h) !important; }
-        html.dark .h-main            { color: #E8EEF8 !important; }
-        html.dark .cons-item .t      { color: #E8EEF8 !important; }
-        html.dark .cons-item .d      { color: #94A3BE !important; }
-        html.dark .sol-list .row     { color: #94A3BE !important; }
-        html.dark .expand-btn        { color: #E8EEF8 !important; }
-        html.dark .expand-btn:hover  { color: #7EB2E8 !important; }
-        html.dark .expand-body       { color: #94A3BE !important; }
-        html.dark .expand            { border-color: rgba(148,163,190,0.12) !important; }
-        html.dark .navlink           { color: #94A3BE; }
-        html.dark .navlink:hover     { color: #7EB2E8; background: rgba(26,86,160,0.14); }
-        html.dark .mnav-link         { color: #C8D4E8 !important; }
-        html.dark #mobilePanel > div > div { background: #121E32 !important; border-color: rgba(148,163,190,0.12) !important; }
-        html.dark .menu-btn          { background: rgba(26,86,160,0.14) !important; border-color: rgba(148,163,190,0.22) !important; color: #C8D4E8 !important; }
-        html.dark .menu-btn:hover    { background: rgba(26,86,160,0.24) !important; }
-        html.dark .menu-btn.is-open  { background: rgba(26,86,160,0.28) !important; }
-        html.dark footer             { background: #090F1E !important; border-color: rgba(148,163,190,0.10) !important; }
-        html.dark #backToTop         { background: #121E32 !important; border-color: rgba(148,163,190,0.16) !important; color: #C8D4E8 !important; }
-        html.dark .field             { background: rgba(255,255,255,0.05) !important; border-color: rgba(148,163,190,0.16) !important; color: #E8EEF8 !important; }
-        html.dark .field::placeholder { color: rgba(148,163,190,0.5); }
-        html.dark .bg-paper          { background-color: #121E32 !important; }
-        html.dark #contactStatus     { color: #C8D4E8 !important; }
-        html.dark .hero-photo        { opacity: 0.04; }
-        html.dark .panel-photo       { opacity: 0.04; }
-        html.dark .panel-photo-2     { opacity: 0.04; }
-        html.dark .panel-photo-3     { opacity: 0.04; }
-        html.dark .panel-photo-5     { opacity: 0.04; }
-        html.dark .panel-photo-6     { opacity: 0.04; }
-        html.dark .panel-photo-7     { opacity: 0.04; }
-        html.dark .bq                { color: #94A3BE; }
-        html.dark .body-lg           { color: #94A3BE; }
+        html.dark #siteHeader        { background: rgba(0,0,0,0.82) !important; border-color: rgba(255,255,255,0.08) !important; }
+        html.dark .panel             { background: rgba(255,255,255,0.10) !important; border-color: rgba(255,255,255,0.06) !important; box-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 4px 16px rgba(0,0,0,0.15) !important; }
+        html.dark .badge             { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.08) !important; }
+        html.dark .infobox-blue      { background: rgba(26,86,160,0.08) !important; border-color: rgba(26,86,160,0.18) !important; }
+        html.dark .infobox-gold      { background: rgba(201,168,60,0.06) !important; border-color: rgba(201,168,60,0.16) !important; }
+        html.dark .btn-ghost         { background: transparent !important; border-color: rgba(255,255,255,0.2) !important; color: #F5F5F7 !important; }
+        html.dark .h-main            { color: #F5F5F7 !important; }
+        html.dark .cons-item .t      { color: #F5F5F7 !important; }
+        html.dark .cons-item .d      { color: #A1A1A6 !important; }
+        html.dark .sol-list .row     { color: #A1A1A6 !important; }
+        html.dark .expand-btn        { color: #F5F5F7 !important; }
+        html.dark .expand-btn:hover  { color: #6EB4F7 !important; }
+        html.dark .expand-body       { color: #A1A1A6 !important; }
+        html.dark .expand            { border-color: rgba(255,255,255,0.06) !important; }
+        html.dark .navlink           { color: #A1A1A6; }
+        html.dark .navlink:hover     { color: #F5F5F7; background: rgba(255,255,255,0.06); }
+        html.dark .mnav-link         { color: #F5F5F7 !important; }
+        html.dark #mobilePanel > div > div { background: #1C1C1E !important; border-color: rgba(255,255,255,0.08) !important; }
+        html.dark .menu-btn          { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.1) !important; color: #F5F5F7 !important; }
+        html.dark .menu-btn:hover    { background: rgba(255,255,255,0.1) !important; }
+        html.dark .menu-btn.is-open  { background: rgba(255,255,255,0.12) !important; }
+        html.dark footer             { background: #000000 !important; border-color: rgba(255,255,255,0.06) !important; }
+        html.dark #backToTop         { background: #1C1C1E !important; border-color: rgba(255,255,255,0.1) !important; color: #F5F5F7 !important; }
+        html.dark .field             { background: rgba(255,255,255,0.05) !important; border-color: rgba(255,255,255,0.1) !important; color: #F5F5F7 !important; }
+        html.dark .field::placeholder { color: #6E6E73; }
+        html.dark .bg-paper          { background-color: #1C1C1E !important; }
+        html.dark #contactStatus     { color: #F5F5F7 !important; }
+        html.dark .hero-photo        { opacity: 0.13; }
+        html.dark .bg-photo          { opacity: 0.13; }
+        html.dark .bq                { color: #A1A1A6; border-color: rgba(201,168,60,0.3); }
+        html.dark .body-lg           { color: #A1A1A6; }
+        html.dark .section-divider   { background: #F5F5F7; opacity: 0.08; }
+        html.dark .hero-title        { color: #F5F5F7; }
+        html.dark .hero-sub          { color: #A1A1A6; }
 
         #dmIconSun  { display: none; }
         #dmIconMoon { display: block; }
@@ -449,6 +469,7 @@
     </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
         class SequenceTypingText {
             constructor(el, seqs=[], opts={}) {
@@ -508,16 +529,16 @@
 <body>
 <div id="top"></div>
 
-<!-- ══ HEADER ══════════════════════════════════════════════════════ -->
+<!-- == HEADER == -->
 <header id="siteHeader" class="sticky top-0 z-50">
-    <div class="mx-auto max-w-6xl px-5 sm:px-6">
-        <div class="flex items-center justify-between py-4">
+    <div class="mx-auto px-5 sm:px-8 lg:px-12">
+        <div class="flex items-center justify-between" style="height: 52px;">
 
-            <a href="#overview" class="text-lg font-semibold tracking-tight sm:text-xl" style="color:var(--text-h);">
-                MedicineTransparency.eu
+            <a href="#overview" class="text-sm font-semibold tracking-tight" style="color:var(--text-h); letter-spacing: -0.02em;">
+                MedicineTransparency<span style="opacity:0.35">.eu</span>
             </a>
 
-            <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+            <nav class="hidden flex-1 items-center justify-center gap-1 lg:flex mx-8" aria-label="Primary">
                 <a href="#overview"   class="navlink ease">Overview</a>
                 <a href="#problem"    class="navlink ease">Issue</a>
                 <a href="#solution"   class="navlink ease">Solution</a>
@@ -527,23 +548,23 @@
                 <a href="#contact"    class="navlink ease">Contact</a>
             </nav>
 
-            <div class="flex items-center gap-2.5">
+            <div class="flex items-center gap-2">
                 <a href="med-transparency-brief.pdf" target="_blank" rel="noopener"
                    class="btn-gold hidden sm:inline-flex ease">
-                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     Brief
                 </a>
 
                 <button id="darkModeBtn" type="button" aria-label="Switch to dark mode"
-                        class="menu-btn inline-flex items-center justify-center p-2.5 ease">
-                    <svg id="dmIconMoon" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                    <svg id="dmIconSun"  viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                        class="menu-btn inline-flex items-center justify-center p-2 ease">
+                    <svg id="dmIconMoon" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg id="dmIconSun"  viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
                 </button>
 
                 <button id="mobileBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"
-                        class="menu-btn inline-flex lg:hidden items-center justify-center p-2.5 ease">
-                    <svg id="menuIconOpen"  viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
-                    <svg id="menuIconClose" viewBox="0 0 24 24" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6l-12 12"/></svg>
+                        class="menu-btn inline-flex lg:hidden items-center justify-center p-2 ease">
+                    <svg id="menuIconOpen"  viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+                    <svg id="menuIconClose" viewBox="0 0 24 24" class="hidden h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6l-12 12"/></svg>
                 </button>
             </div>
         </div>
@@ -551,17 +572,17 @@
         <!-- mobile nav -->
         <div id="mobilePanel" class="mobile-panel lg:hidden" data-open="false">
             <div class="pb-4">
-                <div class="grid gap-1.5 rounded-2xl border p-4 shadow-sm" style="background:var(--paper); border-color:var(--border);" aria-label="Mobile navigation">
-                    <a href="#overview"   class="mnav-link rounded-xl px-3 py-2 ease" style="color:var(--text-h)">Overview</a>
-                    <a href="#problem"    class="mnav-link rounded-xl px-3 py-2 ease" style="color:var(--text-h)">Why?</a>
-                    <a href="#solution"   class="mnav-link rounded-xl px-3 py-2 ease" style="color:var(--text-h)">Solution</a>
-                    <a href="#commission" class="mnav-link rounded-xl px-3 py-2 ease" style="color:var(--text-h)">EC Response</a>
-                    <a href="#evidence"   class="mnav-link rounded-xl px-3 py-2 ease" style="color:var(--text-h)">Evidence</a>
-                    <a href="#faq"        class="mnav-link rounded-xl px-3 py-2 ease" style="color:var(--text-h)">FAQ</a>
-                    <a href="#contact"    class="mnav-link rounded-xl px-3 py-2 ease" style="color:var(--text-h)">Contact</a>
+                <div class="grid gap-1 rounded-2xl border p-3.5" style="background:rgba(255,255,255,0.8); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-color:var(--border);" aria-label="Mobile navigation">
+                    <a href="#overview"   class="mnav-link rounded-xl px-3.5 py-2.5 text-sm ease" style="color:var(--text-h)">Overview</a>
+                    <a href="#problem"    class="mnav-link rounded-xl px-3.5 py-2.5 text-sm ease" style="color:var(--text-h)">Why?</a>
+                    <a href="#solution"   class="mnav-link rounded-xl px-3.5 py-2.5 text-sm ease" style="color:var(--text-h)">Solution</a>
+                    <a href="#commission" class="mnav-link rounded-xl px-3.5 py-2.5 text-sm ease" style="color:var(--text-h)">EC Response</a>
+                    <a href="#evidence"   class="mnav-link rounded-xl px-3.5 py-2.5 text-sm ease" style="color:var(--text-h)">Evidence</a>
+                    <a href="#faq"        class="mnav-link rounded-xl px-3.5 py-2.5 text-sm ease" style="color:var(--text-h)">FAQ</a>
+                    <a href="#contact"    class="mnav-link rounded-xl px-3.5 py-2.5 text-sm ease" style="color:var(--text-h)">Contact</a>
                     <a href="med-transparency-brief.pdf" target="_blank" rel="noopener"
-                       class="btn-gold mt-2 ease">
-                        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                       class="btn-gold mt-1.5 ease">
+                        <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         Brief
                     </a>
                 </div>
@@ -570,78 +591,67 @@
     </div>
 </header>
 
-<!-- ══ MAIN ════════════════════════════════════════════════════════ -->
-<main id="overview" class="mx-auto max-w-6xl px-5 sm:px-6">
+<!-- == MAIN == -->
+<main id="overview" class="mx-auto max-w-5xl px-5 sm:px-6">
 
     <!-- HERO -->
-    <section>
-        <div class="hero-wrap mx-auto max-w-4xl text-center" style="position:relative;">
-            <div class="hero-photo" aria-hidden="true"></div>
+    <section class="section-bg">
+        <div class="hero-photo" aria-hidden="true"></div>
+        <div class="hero-wrap mx-auto max-w-3xl text-center relative">
+                <p class="text-xs font-medium tracking-wide uppercase" style="color:var(--text-b); letter-spacing:0.08em;">EU Medicine Labelling</p>
 
-            <div class="relative">
-                <div class="badge mx-auto">
-                    🇪🇺 Medicine Labelling Reform
-                </div>
-
-                <h1 class="hero-title mt-6 notranslate" translate="no">
-                    Know what's in your...<br>
+                <h1 class="hero-title mt-7 notranslate" translate="no">
+                    Know what's in your<br>
                     <span class="hero-typed notranslate" translate="no" style="color:var(--brand);"></span>
                 </h1>
 
-                <p class="mx-auto mt-6 max-w-3xl text-xl sm:text-2xl leading-relaxed" style="font-family:Georgia,'Times New Roman',serif; color:var(--text-b);">
+                <p class="hero-sub mt-6">
                     Disclose animal-derived ingredients in EU medicines.
                 </p>
 
-                <div class="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <div class="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-3">
                     <a href="https://www.europarl.europa.eu/meps/en/search/advanced?name=&euPoliticalGroupBodyRefNum=&countryCode=&bodyType=ALL"
                        target="_blank" rel="noopener"
-                       class="btn-primary ease">
-                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+                       class="btn-primary ease" style="min-width:170px;">
                         Contact MEPs
                     </a>
-                    <a href="#problem" class="btn-ghost ease">
-                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M12 4h9"/><path d="M4 9h16"/><path d="M4 15h16"/></svg>
+                    <a href="#problem" class="btn-ghost ease" style="min-width:170px;">
                         Read more
                     </a>
                 </div>
-
-                <div class="mt-5 text-sm" style="color:var(--text-m);">
-                    <a href="mailto:?subject=Species%20origin%20disclosure%20for%20excipients%20in%20EU%20medicines&body=Hello%2C%0A%0AI%20am%20writing%20to%20ask%20that%20you%20raise%20the%20issue%20of%20species%20origin%20disclosure%20for%20excipients%20in%20medicinal%20products.%20EU%20rules%20require%20excipient%20names%2C%20but%20they%20do%20not%20reliably%20require%20species%20origin%20for%20animal-derived%20excipients.%0A%0AI%20support%20standard%20origin%20qualifiers%20in%20regulated%20product%20information%2C%20so%20patients%20can%20make%20informed%20choices%20aligned%20with%20ethical%2C%20cultural%2C%20or%20religious%20beliefs.%0A%0AFor%20more%20information%20please%20see%3A%20https%3A%2F%2Fwww.medicinetransparency.eu%2F%0A%0AThanks%2C"
-                       class="underline underline-offset-4 ease" style="color:var(--text-m);">
-                        Download MEP email template
-                    </a>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- PROBLEM -->
-    <section id="problem" class="pb-10 sm:pb-12">
-        <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8" style="position:relative;">
-                <div class="panel-photo" aria-hidden="true"></div>
-                <div class="max-w-3xl" style="position:relative;">
-                    <h2 class="h-main">How is this an issue for patients?</h2>
+    <section id="problem" class="reveal section-bg" style="padding-bottom: var(--section-gap);">
+        <div class="bg-photo" style="background-image:url('med-photo.png');" aria-hidden="true"></div>
+        <div class="mx-auto max-w-3xl relative">
+            <div class="panel p-7 sm:p-10">
+                <div class="max-w-2xl">
+                    <p class="subhead">The Issue</p>
+                    <h2 class="h-main mt-2">How is this an issue for patients?</h2>
 
-                    <p class="body-lg mt-4">
-                        Tens of millions of EU citizens cannot verify whether their prescribed medicines align with their ethical, religious, or personal values. Not only patients — even medical professionals are unable to confirm species origin.
+                    <p class="body-lg mt-5">
+                        Tens of millions of EU citizens cannot verify whether their prescribed medicines align with their ethical, religious, or personal values. Not only patients -- even medical professionals are unable to confirm species origin.
                     </p>
                     <p class="body-lg mt-3">
                         Since manufacturers are not required to provide origin information even in professional product documentation (e.g. SmPCs), pharmacists and clinicians cannot reliably advise patients or identify suitable alternatives.
                     </p>
 
-                    <h3 class="mt-8 text-xl font-bold" style="color:var(--text-h);">Who is affected?</h3>
+                    <div class="section-divider mt-8 mb-6"></div>
+
+                    <h3 class="text-lg font-semibold" style="color:var(--text-h); letter-spacing: -0.02em;">Who is affected?</h3>
 
                     <div class="cons-list">
-                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Vegans and vegetarians</div><div class="d">Object to animal-derived substances on ethical grounds.</div></div></div></div>
-                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Observant Muslims, Jews, Sikhs, Seventh-day Adventists and Orthodox Christians</div><div class="d">Avoid porcine-derived ingredients on religious grounds.</div></div></div></div>
-                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Hindus and Jains</div><div class="d">Avoid bovine-derived ingredients on religious grounds.</div></div></div></div>
-                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Buddhists</div><div class="d">Avoid animal-derived ingredients on religious grounds.</div></div></div></div>
-                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Patients with sensitivities</div><div class="d">Lactose intolerance or sensitivities to specific animal proteins face distinct medical constraints.</div></div></div></div>
-                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Medical professionals</div><div class="d">Cannot reliably advise patients or identify suitable alternatives when origin is not documented in professional product information.</div></div></div></div>
+                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Vegans and vegetarians</div><div class="d">Object to animal-derived substances on ethical grounds.</div></div></div></div>
+                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Observant Muslims, Jews, Sikhs, Seventh-day Adventists and Orthodox Christians</div><div class="d">Avoid porcine-derived ingredients on religious grounds.</div></div></div></div>
+                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Hindus and Jains</div><div class="d">Avoid bovine-derived ingredients on religious grounds.</div></div></div></div>
+                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Buddhists</div><div class="d">Avoid animal-derived ingredients on religious grounds.</div></div></div></div>
+                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Patients with sensitivities</div><div class="d">Lactose intolerance or sensitivities to specific animal proteins face distinct medical constraints.</div></div></div></div>
+                        <div class="cons-item"><div class="icon-row"><span class="ico-alert" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span><div><div class="t">Medical professionals</div><div class="d">Cannot reliably advise patients or identify suitable alternatives when origin is not documented in professional product information.</div></div></div></div>
                     </div>
 
-                    <div class="mt-6 infobox infobox-blue">
+                    <div class="mt-8 infobox infobox-blue">
                         <p class="body-lg">
                             EU-level studies are lacking, but a 2022 study found that 74% of commonly prescribed medicines in the UK contained animal-derived components. <strong style="color:var(--text-h);"> Given shared pharmaceutical supply chains across the EU, a comparable pattern is likely reflected in every EU Member State.</strong>
                         </p>
@@ -655,23 +665,24 @@
     </section>
 
     <!-- SOLUTION -->
-    <section id="solution" class="pb-10 sm:pb-12">
-        <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8" style="position:relative;">
-                <div class="panel-photo-3" aria-hidden="true"></div>
-                <div class="max-w-3xl" style="position:relative;">
-                    <h2 class="h-main">Potential Solutions</h2>
-                    <p class="body-lg mt-4">
-                        Manufacturers already track excipient origin in the supply chain, so disclosure is mainly a labelling, not a formulation change — with minimal cost and no impact on medicine availability. 
+    <section id="solution" class="reveal section-bg" style="padding-bottom: var(--section-gap);">
+        <div class="bg-photo" style="background-image:url('eu-photo-3.png');" aria-hidden="true"></div>
+        <div class="mx-auto max-w-3xl relative">
+            <div class="panel p-7 sm:p-10">
+                <div class="max-w-2xl">
+                    <p class="subhead">Proposal</p>
+                    <h2 class="h-main mt-2">Potential Solutions</h2>
+                    <p class="body-lg mt-5">
+                        Manufacturers already track excipient origin in the supply chain, so disclosure is mainly a labelling, not a formulation change -- with minimal cost and no impact on medicine availability.
                     </p>
 
                     <div class="cons-list">
-                        <div class="cons-item"><div class="icon-row"><span class="ico-check" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg></span><div><div class="t">1. Simple labelling</div><div class="d">Adding species origin to the already-existing ingredient list on packaging. Requires very little to no investment. Example: <em>Magnesium stearate (animal-derived, bovine)</em></div></div></div></div>
-                        <div class="cons-item"><div class="icon-row"><span class="ico-check" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg></span><div><div class="t">2. Extend description in SmPC</div><div class="d">Adding species origin to the ingredient list in the Summary of Product Characteristics — the professional product documentation used by clinicians and pharmacists.</div></div></div></div>
-                        <div class="cons-item"><div class="icon-row"><span class="ico-check" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg></span><div><div class="t">3. Centralised EU Database</div><div class="d">An EU-level origin database linked to digital labelling, enabling patients and professionals to look up any medicine and see the species origin of all excipients.</div></div></div></div>
+                        <div class="cons-item"><div class="icon-row"><span class="ico-check" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg></span><div><div class="t">1. Simple labelling</div><div class="d">Adding species origin to the already-existing ingredient list on packaging. Requires very little to no investment. Example: <em>Magnesium stearate (animal-derived, bovine)</em></div></div></div></div>
+                        <div class="cons-item"><div class="icon-row"><span class="ico-check" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg></span><div><div class="t">2. Extend description in SmPC</div><div class="d">Adding species origin to the ingredient list in the Summary of Product Characteristics -- the professional product documentation used by clinicians and pharmacists.</div></div></div></div>
+                        <div class="cons-item"><div class="icon-row"><span class="ico-check" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg></span><div><div class="t">3. Centralised EU Database</div><div class="d">An EU-level origin database linked to digital labelling, enabling patients and professionals to look up any medicine and see the species origin of all excipients.</div></div></div></div>
                     </div>
 
-                    <div class="mt-6 infobox infobox-blue">
+                    <div class="mt-8 infobox infobox-blue">
                         <p class="subhead">Example labelling format</p>
                         <div class="sol-list mt-3">
                             <div class="row"><span class="font-semibold" style="color:var(--text-h);">Gelatine</span> (animal-derived, porcine/bovine/fish)</div>
@@ -680,7 +691,7 @@
                             <div class="row"><span class="font-semibold" style="color:var(--text-h);">Lactose</span> (animal-derived, bovine)</div>
                             <div class="row"><span class="font-semibold" style="color:var(--text-h);">Shellac</span> (animal-derived, insect)</div>
                         </div>
-                        <p class="mt-4 text-sm" style="color:var(--text-m);">Examples show the disclosure format, not a complete list.</p>
+                        <p class="mt-4 text-xs" style="color:var(--text-m);">Examples show the disclosure format, not a complete list.</p>
                     </div>
                 </div>
             </div>
@@ -688,31 +699,31 @@
     </section>
 
     <!-- COMMISSION RESPONSE -->
-    <section id="commission" class="pb-10 sm:pb-12">
-        <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8" style="position:relative;">
-                <div class="panel-photo-2" aria-hidden="true"></div>
-                <div class="max-w-3xl" style="position:relative;">
-                    <h2 class="h-main">Response from the European Commission</h2>
+    <section id="commission" class="reveal section-bg" style="padding-bottom: var(--section-gap);">
+        <div class="bg-photo" style="background-image:url('eu-photo-2.png');" aria-hidden="true"></div>
+        <div class="mx-auto max-w-3xl relative">
+            <div class="panel p-7 sm:p-10">
+                <div class="max-w-2xl">
+                    <p class="subhead">Official Response</p>
+                    <h2 class="h-main mt-2">Response from the European Commission</h2>
 
-                    <p class="body-lg mt-4">
+                    <p class="body-lg mt-5">
                         The European Commission confirms that a legislative gap exists and acknowledges that the issue affects millions of EU citizens. In a formal response dated 29 January 2026, signed by Olga Solomon, Head of Unit, Directorate-General for Health and Food Safety, the Commission stated:
                     </p>
-                    
 
-                    <div class="mt-5 infobox infobox-gold">
+                    <div class="mt-6 infobox infobox-gold">
                         <p class="subhead">Key excerpts</p>
                         <blockquote class="bq">"Articles 54 and 59 of Directive 2001/83/EC do not necessitate the disclosure of the species origin of excipients, as the legislation is more focused on ensuring the safety, efficacy, and quality of medicinal products."</blockquote>
                         <blockquote class="bq">"We recognise the importance of enabling patients to make informed choices in line with their ethical, cultural, or religious beliefs."</blockquote>
                         <blockquote class="bq">"We value your suggestions for regulatory improvements, including potential amendments to Directive 2001/83/EC, or the introduction of measures such as a centralised database or standardised symbols."</blockquote>
                     </div>
-                    <p class="body-lg mt-3">
+                    <p class="body-lg mt-4">
                         The Commission's own words confirm that current law does not mandate origin disclosure, that the ethical case is recognised, and that the proposed reforms are under active consideration.
                     </p>
-                    <div class="mt-5 flex justify-end">
+                    <div class="mt-6 flex justify-end">
                         <a href="sante-eu-commission.pdf" target="_blank" rel="noopener" class="btn-primary ease">
-                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            View / download letter
+                            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            View letter
                         </a>
                     </div>
                 </div>
@@ -721,17 +732,18 @@
     </section>
 
     <!-- EVIDENCE -->
-    <section id="evidence" class="pb-10 sm:pb-12">
-        <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8" style="position:relative;">
-                <div class="panel-photo-5" aria-hidden="true"></div>
-                <div class="max-w-3xl" style="position:relative;">
-                    <h2 class="h-main">Evidence and documents</h2>
-                    <p class="body-lg mt-3">Detailed brief, Transparency on Animal-Derived Excipients in Human Medicines</p>
-                    <div class="mt-5 flex justify-end">
+    <section id="evidence" class="reveal section-bg" style="padding-bottom: var(--section-gap);">
+        <div class="bg-photo" style="background-image:url('eu-photo-5.png');" aria-hidden="true"></div>
+        <div class="mx-auto max-w-3xl relative">
+            <div class="panel p-7 sm:p-10">
+                <div class="max-w-2xl">
+                    <p class="subhead">Documents</p>
+                    <h2 class="h-main mt-2">Evidence and documents</h2>
+                    <p class="body-lg mt-4">Detailed brief, Transparency on Animal-Derived Excipients in Human Medicines</p>
+                    <div class="mt-6 flex justify-end">
                         <a href="med-transparency-brief.pdf" target="_blank" rel="noopener" class="btn-primary ease">
-                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            View / download brief
+                            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            View brief
                         </a>
                     </div>
                 </div>
@@ -740,31 +752,32 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="pb-12 sm:pb-14 md:pb-16">
-        <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8" style="position:relative;">
-                <div class="panel-photo-6" aria-hidden="true"></div>
-                <div class="max-w-3xl" style="position:relative;">
-                    <h2 class="h-main">Frequently Asked Questions</h2>
-                    <div class="mt-5">
+    <section id="faq" class="reveal section-bg" style="padding-bottom: var(--section-gap);">
+        <div class="bg-photo" style="background-image:url('eu-photo-6.png');" aria-hidden="true"></div>
+        <div class="mx-auto max-w-3xl relative">
+            <div class="panel p-7 sm:p-10">
+                <div class="max-w-2xl">
+                    <p class="subhead">FAQ</p>
+                    <h2 class="h-main mt-2">Frequently Asked Questions</h2>
+                    <div class="mt-6">
                         <div class="expand expand-item" data-open="false">
-                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>Which medicines are affected?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>Which medicines are affected?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
                             <div class="expand-panel"><div class="expand-body">Research indicates that most medicines use animal-derived excipients, including capsules, tablets, and coatings.</div></div>
                         </div>
                         <div class="expand expand-item" data-open="false">
-                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>What about current EU regulations?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>What about current EU regulations?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
                             <div class="expand-panel"><div class="expand-body">EU rules require excipient names to be listed, but they do not require species origin, so it often remains unclear.</div></div>
                         </div>
                         <div class="expand expand-item" data-open="false">
-                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>Why does species origin matter?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>Why does species origin matter?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
                             <div class="expand-panel"><div class="expand-body">Species origin can determine whether a medicine is acceptable for ethical, cultural, or religious reasons, while medicines are often unavoidable.</div></div>
                         </div>
                         <div class="expand expand-item" data-open="false">
-                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>How difficult would this be for manufacturers?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>How difficult would this be for manufacturers?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
                             <div class="expand-panel"><div class="expand-body">They typically document origin for supply-chain and quality-control purposes, so the main change is standardised disclosure.</div></div>
                         </div>
                         <div class="expand expand-item" data-open="false">
-                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>What policy options exist?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                            <button type="button" class="expand-btn expand-btn-js" aria-expanded="false"><span>What policy options exist?</span><span class="expand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
                             <div class="expand-panel"><div class="expand-body">Options include origin qualifiers in product information, a standardised symbol or notation on the box and/or package leaflet, and an EU-level origin database linked to digital labelling.</div></div>
                         </div>
                     </div>
@@ -774,16 +787,17 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="pb-14 sm:pb-16 md:pb-20">
-        <div class="mx-auto max-w-4xl">
-            <div class="panel p-6 sm:p-8" style="position:relative;">
-                <div class="panel-photo-7" aria-hidden="true"></div>
-                <div class="max-w-3xl" style="position:relative;">
-                    <h2 class="h-main">Get Involved</h2>
-                    <p class="body-lg mt-2">If you have questions or want to contribute — evidence, drafting, outreach, or web.</p>
+    <section id="contact" class="reveal section-bg" style="padding-bottom: var(--section-gap);">
+        <div class="bg-photo" style="background-image:url('eu-photo-7.png');" aria-hidden="true"></div>
+        <div class="mx-auto max-w-3xl relative">
+            <div class="panel p-7 sm:p-10">
+                <div class="max-w-2xl">
+                    <p class="subhead">Get in touch</p>
+                    <h2 class="h-main mt-2">Get Involved</h2>
+                    <p class="body-lg mt-3">If you have questions or want to contribute -- evidence, drafting, outreach, or web.</p>
                 </div>
 
-                <form id="contactForm" class="mt-6 w-full max-w-3xl" action="https://formspree.io/f/xnjvejvk" method="POST">
+                <form id="contactForm" class="mt-7 w-full max-w-2xl" action="https://formspree.io/f/xnjvejvk" method="POST">
                     <label class="sr-only">Do not fill this<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
                     <input type="hidden" name="_subject" value="MedicineTransparency.eu contact form submission" />
 
@@ -798,10 +812,10 @@
                         </div>
                         <div>
                             <label class="sr-only" for="message">Message</label>
-                            <textarea id="message" class="field min-h-[130px]" name="message" placeholder="Message" required></textarea>
+                            <textarea id="message" class="field min-h-[140px]" name="message" placeholder="Message" required></textarea>
                         </div>
                         <button id="contactBtn" type="submit" class="btn-primary ease">
-                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+                            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
                             <span id="contactBtnText">Send message</span>
                         </button>
                         <div id="contactStatus" class="hidden rounded-xl border px-4 py-3 text-sm" style="border-color:var(--border); color:var(--text-b);"></div>
@@ -812,30 +826,30 @@
     </section>
 </main>
 
-<!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
-<footer class="border-t" style="background:var(--paper-hdr); border-color:var(--border);">
-    <div class="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-10 sm:px-6 sm:flex-row sm:items-start sm:justify-between">
-        <div class="max-w-2xl">
-            <div class="text-sm">
-                <a class="underline underline-offset-4 ease" href="mailto:info@medicinetransparency.eu" style="color:var(--text-b);">info@medicinetransparency.eu</a>
-                <span style="color:var(--text-m); margin:0 6px;">·</span>
-                <a class="underline underline-offset-4 ease" href="privacy.html" style="color:var(--text-b);">Privacy</a>
-            </div>
-            <div class="mt-2 text-sm" style="color:var(--text-m);">This is an independent citizen-led initiative. We are not affiliated
-with any EU institution. <br>We do not encourage patients to avoid their prescribed medications.
+<!-- == FOOTER == -->
+<footer class="border-t" style="background:var(--paper); border-color:var(--border);">
+    <div class="mx-auto max-w-5xl px-5 sm:px-6">
 
-<br>You may share and quote with attribution.</div>
+        <!-- Top row: links -->
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-10 pb-4 text-xs" style="color:var(--text-m);">
+            <a class="ease" href="mailto:info@medicinetransparency.eu" style="color:var(--text-m);">info@medicinetransparency.eu</a>
+            <a class="ease" href="privacy.html" style="color:var(--text-m);">Privacy</a>
+            <a href="#top" id="backToTop" class="ease ml-auto" style="color:var(--text-m);" aria-label="Back to top">Back to top</a>
         </div>
-        <div class="flex flex-col items-start gap-3 sm:items-end">
-            <a href="#top" id="backToTop" class="inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium shadow-sm ease" style="border-color:var(--border); color:var(--text-b); background:var(--paper);" aria-label="Back to top">
-                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><polyline points="6 11 12 5 18 11"/></svg>
-                Back to top
-            </a>
+
+        <!-- Divider -->
+        <div style="height:0.5px; background:var(--border);"></div>
+
+        <!-- Bottom row: legal -->
+        <div class="py-6 text-xs leading-relaxed" style="color:var(--text-m);">
+            <p>Independent citizen-led initiative. Not affiliated with any EU institution.</p>
+            <p class="mt-1">We do not encourage patients to avoid prescribed medications. You may share and quote with attribution.</p>
         </div>
+
     </div>
 </footer>
 
-<!-- ══ SCRIPTS ═════════════════════════════════════════════════════ -->
+<!-- == SCRIPTS == -->
 <script>
 (function(){
     const h=document.getElementById("siteHeader");
@@ -927,6 +941,27 @@ with any EU institution. <br>We do not encourage patients to avoid their prescri
     function upd(){btn.setAttribute("aria-label",html.classList.contains("dark")?"Switch to light mode":"Switch to dark mode");}
     upd();
     btn.addEventListener("click",()=>{html.classList.toggle("dark");localStorage.setItem("colorScheme",html.classList.contains("dark")?"dark":"light");upd();});
+})();
+</script>
+
+<script>
+(function(){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".reveal").forEach(function(el){
+        gsap.fromTo(el,
+            { opacity: 0, y: 32 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 88%",
+                    once: true
+                }
+            }
+        );
+    });
 })();
 </script>
 

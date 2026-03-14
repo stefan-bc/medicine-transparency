@@ -395,8 +395,28 @@
         /* ---- SR-ONLY ---- */
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-        /* ---- TYPING CURSOR ---- */
-        .typing-cursor { display: inline-block; width: 0; height: 0; background-color: transparent !important; opacity: 0 !important; animation: none !important; pointer-events: none; }
+        /* Flip-words rotator */
+        .flip-words {
+            display: inline-block;
+            position: relative;
+            height: 1.1em;
+            line-height: 1.1;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+        .flip-words span {
+            display: block;
+            height: 1.1em;
+            line-height: 1.1;
+            animation: flip 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        @keyframes flip {
+            0%,  20%  { transform: translateY(0); }
+            25%, 45%  { transform: translateY(-100%); }
+            50%, 70%  { transform: translateY(-200%); }
+            75%, 95%  { transform: translateY(-300%); }
+            100%      { transform: translateY(-400%); }
+        }
 
         /* ---- SCROLL REVEAL ---- */
         .reveal {
@@ -471,58 +491,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
-        class SequenceTypingText {
-            constructor(el, seqs=[], opts={}) {
-                this.element=el; this.sequences=seqs;
-                this.typingSpeed=opts.typingSpeed||50; this.deletingSpeed=opts.deletingSpeed||25;
-                this.showCursor=opts.showCursor!==false; this.cursorCharacter=opts.cursorCharacter||"|";
-                this.initialDelay=opts.initialDelay||0; this.baseText=opts.baseText||"";
-                this.baseLength=this.baseText.length; this.displayedText=this.baseText;
-                this.sequenceIndex=0; this.commandIndex=0; this.timeout=null;
-                this.init();
-            }
-            init() {
-                this.element.textContent="";
-                this.textEl=document.createElement("span"); this.element.appendChild(this.textEl);
-                this.textEl.textContent=this.displayedText;
-                if(this.showCursor){ this.cursorEl=document.createElement("span"); this.cursorEl.className=this.cursorCharacter==="|"?"typing-cursor":""; if(this.cursorCharacter!=="|")this.cursorEl.textContent=this.cursorCharacter; this.element.appendChild(this.cursorEl); }
-                this.timeout=setTimeout(()=>this.playSequence(),this.initialDelay);
-            }
-            playSequence() {
-                const seq=this.sequences[this.sequenceIndex%this.sequences.length], cmds=seq.commands||[];
-                if(this.commandIndex>=cmds.length){this.commandIndex=0;this.sequenceIndex++;this.playSequence();return;}
-                const cmd=cmds[this.commandIndex++];
-                if(cmd.type==="type")this.typeText(cmd.text);
-                else if(cmd.type==="deleteToLength")this.deleteToLength(cmd.length);
-                else if(cmd.type==="pause")this.timeout=setTimeout(()=>this.playSequence(),cmd.duration);
-            }
-            typeText(text) {
-                let i=0; const t=()=>{
-                    if(i<text.length){const ch=text[i]; this.displayedText+=ch; this.textEl.textContent=this.displayedText; i++;
-                        let d=this.typingSpeed*(0.65+Math.random()*0.7);
-                        if(ch==='.'||ch==='!'||ch==='?')d=this.typingSpeed*(1.2+Math.random()*0.4);
-                        this.timeout=setTimeout(t,d);
-                    }else this.playSequence();
-                }; t();
-            }
-            deleteToLength(len) {
-                const min=Math.max(len,this.baseLength); const d=()=>{
-                    if(this.displayedText.length>min){this.displayedText=this.displayedText.slice(0,-1);this.textEl.textContent=this.displayedText;this.timeout=setTimeout(d,this.deletingSpeed*(0.75+Math.random()*0.5));}
-                    else this.playSequence();
-                }; d();
-            }
-            destroy(){if(this.timeout)clearTimeout(this.timeout);}
-        }
-
-        document.addEventListener("DOMContentLoaded",function(){
-            const el=document.querySelector(".hero-typed"); if(!el)return;
-            new SequenceTypingText(el,[
-                {commands:[{type:"pause",duration:400},{type:"type",text:"tablets."},{type:"pause",duration:2500},{type:"deleteToLength",length:0}]},
-                {commands:[{type:"pause",duration:400},{type:"type",text:"capsules."},{type:"pause",duration:2500},{type:"deleteToLength",length:0}]},
-                {commands:[{type:"pause",duration:400},{type:"type",text:"injection."},{type:"pause",duration:2500},{type:"deleteToLength",length:0}]},
-                {commands:[{type:"pause",duration:400},{type:"type",text:"prescription."},{type:"pause",duration:2500},{type:"deleteToLength",length:0}]}
-            ],{baseText:"",typingSpeed:300,deletingSpeed:100,showCursor:true,initialDelay:300});
-        });
+        /* No JS needed for flip-words — pure CSS animation */
     </script>
 </head>
 
@@ -602,7 +571,7 @@
 
                 <h1 class="hero-title mt-7 notranslate" translate="no">
                     Know what's in your<br>
-                    <span class="hero-typed notranslate" translate="no" style="color:var(--brand);"></span>
+                    <span class="flip-words notranslate" translate="no" style="color:var(--brand);"><span>tablets.</span><span>capsules.</span><span>injection.</span><span>prescription.</span><span>tablets.</span></span>
                 </h1>
 
                 <p class="hero-sub mt-6">
